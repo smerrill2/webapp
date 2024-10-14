@@ -1,5 +1,4 @@
 // src/app/page.tsx
-// src/app/page.tsx
 
 import React from 'react';
 import TestimonialCard from "@/app/components/ui/TestimonialCard";
@@ -105,9 +104,9 @@ export default function ModernLawnCareLanding() {
             Join the ranks of businesses that have transformed their online success with our cutting-edge web solutions and strategies.
           </p>
           <div className="flex justify-center space-x-4">
-            <LearnMoreButton className="bg-pink-500 hover:bg-pink-600 text-white px-8 py-3 rounded-full text-lg font-semibold transition-colors">
+            <Button className="bg-pink-500 hover:bg-pink-600 text-white px-8 py-3 rounded-full text-lg font-semibold transition-colors">
               Get Started
-            </LearnMoreButton>
+            </Button>
           </div>
         </section>
           <div id="booking-form" className="mt-12">
