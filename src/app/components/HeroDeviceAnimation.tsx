@@ -88,10 +88,10 @@ export default function HeroDeviceAnimation() {
   };
 
   return (
-    <div className="relative w-full h-[800px] overflow-hidden bg-blue-3"> {/* Keep existing background color */}
+    <div className="relative w-full h-[800px] overflow-hidden bg-blue-3">
       <AnimatePresence mode="sync">
         <motion.div
-          key={currentSetIndex} // Unique key for each image set
+          key={currentSetIndex}
           className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 p-8" 
           variants={gridVariants}
           initial="initial"
@@ -99,19 +99,17 @@ export default function HeroDeviceAnimation() {
           exit="animateOut"
         >
           {imageSets[currentSetIndex].map((imageSource, index) => {
-            const columnIndex = Math.floor(index / 2); // rows =2
-            const rowIndex = index % 2;
             return (
               <motion.div
                 key={index}
-                className="relative w-full h-[500px] sm:h-[600px] md:h-[700px] lg:h-[800px]" // Increased heights using arbitrary values
+                className="relative w-full h-[500px] sm:h-[600px] md:h-[700px] lg:h-[800px]"
               >
                 <Image
                   src={imageSource}
-                  alt={`Device frame showing ${getImageDescription(index)}`} // Descriptive alt text
-                  layout="fill" // Make the image fill its container
-                  objectFit="contain" // Ensure the image fits within the container
-                  className="shadow-sm" // Removed rounded corners
+                  alt={`Device frame showing ${getImageDescription(index)}`}
+                  layout="fill"
+                  objectFit="contain"
+                  className="shadow-sm"
                 />
               </motion.div>
             );
@@ -127,7 +125,7 @@ function getImageDescription(index: number): string {
   const descriptions = [
     'LawnTimer Settings Example',
     'Family Photo of Connecting w/ Nature',
-    'Lawn Timer Suggestions App ',
+    'Lawn Timer Suggestions App',
     'Lawn Timer UI for website, CTA button',
     'LawnLogicUSA old homepage',
     'More settings for LawnTimer',
