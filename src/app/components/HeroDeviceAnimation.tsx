@@ -16,7 +16,7 @@ const imageSets = [
     '/images/image5.png',
     '/images/image6.png',
     '/images/image7.png',
-    '/images/image1.png',
+    '/images/image8.png',
   ],
   // Add more sets as desired
 ];
