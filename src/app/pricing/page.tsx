@@ -1,4 +1,4 @@
- // src/app/testimonials/PricingPage.tsx
+// src/app/testimonials/PricingPage.tsx
 
 'use client';
 
@@ -35,24 +35,26 @@ const PricingPage: React.FC = () => {
 
         {/* Pricing Tiers */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* Consultation Tier */}
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
             <PricingTier
-              title="Consultation"
-              price="0"
-              features={[
-                "1-hour website review",
-                "Free mock-up design",
-                "Expert recommendations",
-                "No obligation"
-              ]}
-              cta="Book Free Consultation"
+                title="Consultation"
+                price="0"
+                features={[
+                    "1-hour website review",
+                    "Free mock-up design",
+                    "Expert recommendations",
+                    "No obligation"
+                ]}
+                cta="Book Free Consultation"
             />
           </motion.div>
 
+          {/* Starter Tier */}
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
@@ -73,6 +75,7 @@ const PricingPage: React.FC = () => {
             />
           </motion.div>
 
+          {/* Pro Tier */}
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
@@ -93,6 +96,7 @@ const PricingPage: React.FC = () => {
             />
           </motion.div>
 
+          {/* Platinum Tier */}
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
