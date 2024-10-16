@@ -1,11 +1,9 @@
 // src/app/testimonials/WSUTestimonial.tsx
 
 import React from 'react';
-import { Button } from "@/app/components/button";
 import { Card, CardContent } from "@/app/components/card";
-import { Instagram } from 'lucide-react';
 import Image from 'next/image';
-import Link from 'next/link';
+import { Instagram } from 'lucide-react';
 import Header from '../components/Header'; // Importing Header component
 import Footer from '../components/Footer'; // Importing Footer component
 
@@ -71,14 +69,14 @@ export default function WSUTestimonial() {
           <section className="mt-8">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Growth with Them</h2>
             <p className="text-lg text-gray-300 leading-relaxed mb-4">
-              Beginning in the Summer of 24', I helped curate and plan a social media strategy to increase the amount of 
-              followers on their accounts, while the goal was to increase the graduate applicant pool. 
+              Beginning in the Summer of &#39;24, I helped curate and plan a social media strategy to increase the number of
+              followers on their accounts, while the goal was to increase the graduate applicant pool.
             </p>
             <p className="text-lg text-gray-300 leading-relaxed">
-            It's been a pleasure working with them thus far, as we've seen a 15% increase of applications from the previous year compared to this time with little budget going into it.
-            This increased yield with the same amount of budget as the previous year has been a great success for not only acheiving our goals, but having 
-            a new, great relationship with the students involved with creating the content. Since then.. I have partnered with the College of Innovation Design, to further expand their applications by 2 fold. 
-            If you're curious and want to know more, feel free to reach out to us!
+              It&#39;s been a pleasure working with them thus far, as we&#39;ve seen a 15% increase in applications from the previous year compared to this time with little budget going into it.
+              This increased yield with the same amount of budget as the previous year has been a great success for not only achieving our goals but also establishing
+              a new, great relationship with the students involved in creating the content. Since then, I have partnered with the College of Innovation Design to further expand their applications twofold.
+              If you&#39;re curious and want to know more, feel free to reach out to us!
             </p>
           </section>
 

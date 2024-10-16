@@ -3,8 +3,8 @@
 'use client';
 
 import React from 'react';
-import { Button } from "@/app/components/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/app/components/card";
+import { Button } from "@/app/components/button"; // Adjust the import path as necessary
+import { Card, CardContent, CardHeader, CardTitle } from "@/app/components/card"; // Adjust the import path as necessary
 import { Check } from 'lucide-react';
 
 interface PricingTierProps {
