@@ -1,6 +1,8 @@
 // src/app/page.tsx
 
 import React from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
 import TestimonialCard from "@/app/components/ui/TestimonialCard";
 import DemoBookingForm from '@/app/components/DemoBookingForm';
 import Header from '@/app/components/Header';
@@ -8,10 +10,7 @@ import Footer from '@/app/components/Footer';
 import HeroSection from '@/app/components/HeroSection'; // Import HeroSection
 import { Button } from '@/app/components/button';
 import { CheckIcon } from 'lucide-react';
-import Link from 'next/link';
 
-import LearnMoreButton from './components/LearnMoreButton';
-import Image from 'next/image';
 
 export default function ModernLawnCareLanding() {
   return (
