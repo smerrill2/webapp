@@ -58,7 +58,7 @@ export default function ModernLawnCareLanding() {
             </div>
             <div className="relative h-[400px]">
               <Image
-                src="/images/asset1.png"
+                src="/images/asset12.png"
                 alt="Digital success visualization"
                 layout="fill"
                 objectFit="cover"
