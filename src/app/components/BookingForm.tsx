@@ -3,11 +3,11 @@
 'use client';
 
 import React, { useState } from 'react';
+import axios from 'axios'; // Ensure axios is installed
 import { Button } from "./button";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "./card";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
-import { supabase } from '@/lib/supabaseClient'; // Import the Supabase client
 
 export default function BookingForm() {
   // State variables for form fields
@@ -19,7 +19,7 @@ export default function BookingForm() {
     state: '',
   });
 
-  // State variable for submission status
+  // State variables for submission status and messages
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [successMessage, setSuccessMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
@@ -37,13 +37,26 @@ export default function BookingForm() {
     setErrorMessage('');
     setSuccessMessage('');
 
-    try {
-      const { error } = await supabase.from('form_submissions').insert([formData]);
+    // Client-side validation (optional but recommended)
+    const emailRegex = /\S+@\S+\.\S+/;
+    if (!emailRegex.test(formData.email)) {
+      setErrorMessage('Please enter a valid email address.');
+      setIsSubmitting(false);
+      return;
+    }
 
-      if (error) {
-        console.error('Error inserting data:', error);
-        setErrorMessage('There was an error submitting the form. Please try again.');
-      } else {
+    const phoneRegex = /^\(?([0-9]{3})\)?[-.●]?([0-9]{3})[-.●]?([0-9]{4})$/;
+    if (!phoneRegex.test(formData.phone)) {
+      setErrorMessage('Please enter a valid phone number.');
+      setIsSubmitting(false);
+      return;
+    }
+
+    try {
+      const response = await axios.post('/api/submitForm', formData);
+
+      
+      if (response.status === 200) {
         setSuccessMessage('Your information has been submitted successfully!');
         // Reset the form
         setFormData({
@@ -53,10 +66,16 @@ export default function BookingForm() {
           company: '',
           state: '',
         });
+      } else {
+        setErrorMessage('There was an error submitting the form. Please try again.');
       }
-    } catch (err) {
+    } catch (err: any) {
       console.error('Unexpected error:', err);
-      setErrorMessage('An unexpected error occurred. Please try again.');
+      if (err.response && err.response.data && err.response.data.error) {
+        setErrorMessage(err.response.data.error);
+      } else {
+        setErrorMessage('An unexpected error occurred. Please try again.');
+      }
     } finally {
       setIsSubmitting(false);
     }
@@ -138,9 +157,35 @@ export default function BookingForm() {
           <Button
             type="submit"
             disabled={isSubmitting}
-            className="w-full bg-pink-500 hover:bg-pink-600 text-white py-3 rounded-md font-semibold transition-colors"
+            className="w-full bg-pink-500 hover:bg-pink-600 text-white py-3 rounded-md font-semibold transition-colors flex items-center justify-center"
           >
-            {isSubmitting ? 'Submitting...' : 'Submit'}
+            {isSubmitting ? (
+              <>
+                <svg
+                  className="animate-spin h-5 w-5 mr-3 text-white"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <circle
+                    className="opacity-25"
+                    cx="12"
+                    cy="12"
+                    r="10"
+                    stroke="currentColor"
+                    strokeWidth="4"
+                  ></circle>
+                  <path
+                    className="opacity-75"
+                    fill="currentColor"
+                    d="M4 12a8 8 0 018-8v8H4z"
+                  ></path>
+                </svg>
+                Submitting...
+              </>
+            ) : (
+              'Submit'
+            )}
           </Button>
         </CardFooter>
       </form>
