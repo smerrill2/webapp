@@ -31,7 +31,7 @@ const Footer = () => {
           <nav>
             <ul className="flex flex-wrap justify-center md:justify-end space-x-6">
               <li>
-                <Link href="/about-us" className="text-gray-400 hover:text-white">
+                <Link href="/about" className="text-gray-400 hover:text-white">
                   About Us
                 </Link>
               </li>
@@ -67,7 +67,7 @@ const Footer = () => {
           </div>
           <div className="text-gray-400 text-sm">
             <span>© 2024 LawnLogic Inc.</span>
-            <Link href="/legal" className="ml-4 hover:text-white">
+            <Link href="/terms" className="ml-4 hover:text-white">
               Legal
             </Link>
             <Link href="/privacy" className="ml-4 hover:text-white">
