@@ -107,8 +107,8 @@ export default function HeroDeviceAnimation() {
                 <Image
                   src={imageSource}
                   alt={`Device frame showing ${getImageDescription(index)}`}
-                  layout="fill"
-                  objectFit="contain"
+                  fill
+                  style={{ objectFit: 'contain', objectPosition: 'left center' }}
                   className="shadow-sm"
                 />
               </motion.div>
