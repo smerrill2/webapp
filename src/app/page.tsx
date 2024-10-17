@@ -4,7 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import TestimonialCard from "@/app/components/ui/TestimonialCard";
-import DemoBookingForm from '@/app/components/DemoBookingForm';
+import BookingForm from '@/app/components/BookingForm';
 import Header from '@/app/components/Header';
 import Footer from '@/app/components/Footer';
 import HeroSection from '@/app/components/HeroSection'; // Import HeroSection
@@ -113,7 +113,7 @@ export default function ModernLawnCareLanding() {
 
             {/* Booking Form */}
             <div id="booking-form" className="mt-12 px-4 sm:px-0">
-              <DemoBookingForm />
+              <BookingForm />
             </div>
           </div>
         </main>
