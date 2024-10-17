@@ -3,7 +3,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import axios, { AxiosError } from 'axios'; // Import AxiosError
+import axios, {  } from 'axios'; // Import AxiosError
 import { Button } from "./button";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "./card";
 import { Input } from "./ui/input";
