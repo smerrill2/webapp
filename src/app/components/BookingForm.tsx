@@ -3,7 +3,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import axios from 'axios'; // Ensure axios is installed
+import axios, { AxiosError } from 'axios'; // Import AxiosError
 import { Button } from "./button";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "./card";
 import { Input } from "./ui/input";
@@ -55,7 +55,6 @@ export default function BookingForm() {
     try {
       const response = await axios.post('/api/submitForm', formData);
 
-      
       if (response.status === 200) {
         setSuccessMessage('Your information has been submitted successfully!');
         // Reset the form
@@ -69,10 +68,14 @@ export default function BookingForm() {
       } else {
         setErrorMessage('There was an error submitting the form. Please try again.');
       }
-    } catch (err: any) {
+    } catch (err: unknown) { // Changed from any to unknown
       console.error('Unexpected error:', err);
-      if (err.response && err.response.data && err.response.data.error) {
-        setErrorMessage(err.response.data.error);
+      if (axios.isAxiosError(err)) { // Check if the error is an AxiosError
+        if (err.response && err.response.data && err.response.data.error) {
+          setErrorMessage(err.response.data.error);
+        } else {
+          setErrorMessage('There was an error submitting the form. Please try again.');
+        }
       } else {
         setErrorMessage('An unexpected error occurred. Please try again.');
       }
