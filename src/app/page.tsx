@@ -42,15 +42,15 @@ export default function ModernLawnCareLanding() {
                 ))}
               </ul>
               <div className="flex space-x-4">
-              <div className="flex flex-wrap justify-start space-x-4 items-center">
+<div className="flex justify-start space-x-4 items-center">
   <Link href="/testimonials">
     <Button className="bg-transparent hover:bg-white/10 text-white px-8 py-3 rounded-full text-lg font-semibold transition-colors border-2 border-white">
       Testimonials
     </Button>
   </Link>
-  <Link href="/video">
+  <Link href="/FAQ">
     <Button className="bg-transparent hover:bg-white/10 text-white px-8 py-3 rounded-full text-lg font-semibold transition-colors border-2 border-white">
-      See How It Works
+      FAQ
     </Button>
   </Link>
 </div>
@@ -58,7 +58,7 @@ export default function ModernLawnCareLanding() {
             </div>
             <div className="relative h-[400px]">
               <Image
-                src="/images/asset12.png"
+                src="/images/asset12.jpg"
                 alt="Digital success visualization"
                 layout="fill"
                 objectFit="cover"

@@ -2,32 +2,47 @@
 
 'use client';
 
+import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { Button } from './button'; // Adjust the path according to your project structure
 import Image from 'next/image';
-import { PhoneIcon } from 'lucide-react';
+import { PhoneIcon, MenuIcon, XIcon } from 'lucide-react'; // Import icons
 
 const Header = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  // Close the menu when pressing the 'Esc' key
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape' && isMenuOpen) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isMenuOpen]);
+
   return (
-    <header className="container mx-auto px-8 py-4">
-      <nav className="flex justify-between items-center">
-        {/* Logo Container with Responsive Left Margin */}
-        <div className="flex items-center ml-0 lg:ml-9">
-          <Link href="/" passHref>
-            <div className="w-60 h-20 relative cursor-pointer">
-              <Image
-                src="/images/LawnLogic.png"
-                alt="LawnLogic Logo"
-                layout="fill"
-                objectFit="contain"
-                objectPosition="left center"
-                priority
-              />
-            </div>
+    <header className="container mx-auto px-6 py-4">
+      <nav className="flex justify-between items-center relative">
+        {/* Logo Container */}
+        <div className="flex items-center ml-0 lg:ml-4">
+          <Link href="/" className="w-60 h-20 relative cursor-pointer">
+            <Image
+              src="/images/LawnLogic.png"
+              alt="LawnLogic Logo"
+              layout="fill"
+              objectFit="contain"
+              objectPosition="left center"
+              priority
+            />
           </Link>
         </div>
 
-        {/* Navigation Links */}
+        {/* Desktop Navigation Links */}
         <ul className="hidden md:flex space-x-6 items-center">
           <li>
             <Link href="/about">
@@ -53,10 +68,79 @@ const Header = () => {
         </ul>
 
         {/* Mobile Menu Button */}
-        <Button variant="outline" className="md:hidden">
-          Menu
-        </Button>
+        <div className="md:hidden">
+          <Button
+            variant="outline"
+            className="flex items-center justify-center p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-expanded={isMenuOpen}
+            aria-label="Toggle navigation menu"
+          >
+            {isMenuOpen ? (
+              <XIcon className="w-6 h-6 text-white" aria-hidden="true" />
+            ) : (
+              <MenuIcon className="w-6 h-6 text-white" aria-hidden="true" />
+            )}
+          </Button>
+        </div>
       </nav>
+
+      {/* Mobile Slide-in Menu */}
+      {/* Backdrop */}
+      <div
+        className={`fixed inset-0 bg-black bg-opacity-50 z-40 transition-opacity duration-300 ease-in-out ${
+          isMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
+        }`}
+        onClick={() => setIsMenuOpen(false)}
+      ></div>
+
+      {/* Slide-in Menu */}
+      <div
+        className={`fixed top-0 right-0 h-full w-64 bg-white shadow-lg z-50 transform transition-transform duration-300 ease-in-out ${
+          isMenuOpen ? 'translate-x-0' : 'translate-x-full'
+        }`}
+      >
+        <div className="flex items-center justify-between p-4">
+          <h2 className="text-xl font-semibold text-gray-800">Menu</h2>
+          <Button
+            variant="outline"
+            className="p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500"
+            onClick={() => setIsMenuOpen(false)}
+            aria-label="Close menu"
+          >
+            <XIcon className="w-6 h-6 text-gray-800" aria-hidden="true" />
+          </Button>
+        </div>
+        <ul className="flex flex-col space-y-2 p-4">
+          <li>
+            <Link
+              href="/about"
+              onClick={() => setIsMenuOpen(false)}
+              className="block text-gray-800 hover:bg-gray-100 rounded-md px-3 py-2 text-base font-medium"
+            >
+              About Us
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/testimonials"
+              onClick={() => setIsMenuOpen(false)}
+              className="block text-gray-800 hover:bg-gray-100 rounded-md px-3 py-2 text-base font-medium"
+            >
+              Testimonials
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/contact"
+              onClick={() => setIsMenuOpen(false)}
+              className="block text-gray-800 hover:bg-gray-100 rounded-md px-3 py-2 text-base font-medium items-center"
+            >
+              <PhoneIcon className="w-5 h-5 mr-2" /> Call Us
+            </Link>
+          </li>
+        </ul>
+      </div>
     </header>
   );
 };
