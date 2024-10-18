@@ -68,7 +68,7 @@ const Footer = () => {
           <div className="text-gray-400 text-sm">
             <span>© 2024 LawnLogic Inc.</span>
             <Link href="/terms" className="ml-4 hover:text-white">
-              Legal
+              Terms
             </Link>
             <Link href="/privacy" className="ml-4 hover:text-white">
               Privacy
