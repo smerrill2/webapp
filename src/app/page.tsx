@@ -144,10 +144,10 @@ export default function HomePage() {
           </section>
 
           {/* Booking Form Section */}
-          <div className="px-6 mb-24">
-            <BookingForm />
+          <div id="booking-form" className="px-6 mb-24"> {/* Added id="booking-form" here */}
+  <BookingForm />
           </div>
-        </main>
+                  </main>
       </div>
       <Footer />
     </>
