@@ -31,8 +31,7 @@ export default function ContactPage() {
                   <div className="flex items-center space-x-3">
                     <Mail className="text-green-400" />
                     <a href="mailto:hello@lawnlogicusa.com" className="text-white hover:text-green-400 transition-colors">
-                      support@lawnlogic.com
-                    </a>
+spencer@lawnlogicusa.com                </a>
                   </div>
                   <div className="flex items-center space-x-3">
                     <Phone className="text-green-400" />
