@@ -11,7 +11,7 @@ export default function HeroDeviceAnimation() {
       {/* Image Wrapper */}
       <div className="absolute inset-0 md:w-[160%] md:h-full transform md:translate-x-[5%]">
         <Image 
-          src="/images/heroimage.png" // Ensure this path is correct
+          src="/images/HeroImage.png" // Ensure this path is correct
           alt="Screenshot of our lawn care solutions website interface"
           fill
           className="rounded-lg object-cover object-left md:object-center"
