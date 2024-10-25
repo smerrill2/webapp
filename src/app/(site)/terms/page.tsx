@@ -7,8 +7,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
 import BookingForm from '@/app/components/BookingForm';
-import Header from '@/app/components/Header';
-import Footer from '@/app/components/Footer';
 import HeroSection from '@/app/components/HeroSection'; // Import HeroSection
 import { Button } from '@/app/components/button';
 import { CheckIcon } from 'lucide-react';

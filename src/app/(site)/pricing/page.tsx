@@ -4,8 +4,6 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import Header from '@/app/components/Header';
-import Footer from '@/app/components/Footer';
 import PricingTier from '@/app/components/PricingTier'; // Adjust the import path as necessary
 
 const PricingPage: React.FC = () => {

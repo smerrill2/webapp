@@ -3,8 +3,6 @@
 import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronDown, ChevronUp } from 'lucide-react'
-import Header from '@/app/components/Header'
-import Footer from '@/app/components/Footer'
 
 interface FAQItem {
   question: string;

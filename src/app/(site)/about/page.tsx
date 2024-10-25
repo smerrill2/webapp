@@ -1,8 +1,6 @@
 // src/app/about/page.tsx
 
 import React from 'react';
-import Header from '@/app/components/Header';
-import Footer from '@/app/components/Footer';
 import AboutUsSection from '@/app/components/AboutUsSsection'; // Corrected spelling
 import { Button } from '@/app/components/button';
 import Image from 'next/image';

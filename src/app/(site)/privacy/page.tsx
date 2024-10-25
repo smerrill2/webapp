@@ -3,8 +3,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { Card, CardContent, CardHeader, CardTitle } from "@/app/components/card"
-import Header from '@/app/components/Header'
-import Footer from '@/app/components/Footer'
 
 const PrivacyPage: React.FC = () => {
   return (

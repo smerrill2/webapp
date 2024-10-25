@@ -4,8 +4,6 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { Card, CardContent } from "@/app/components/card"
 import { Mail, Phone, MapPin } from 'lucide-react'
-import Header from '@/app/components/Header'
-import Footer from '@/app/components/Footer'
 import DemoBookingForm from '@/app/components/BookingForm'
 
 export default function ContactPage() {

@@ -57,5 +57,8 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
         - SEO and then outreach following that 
         - Fix mobile site, maybe this can be in the layout.tsx file that can be automated - would this use reacthooks?
 
+
+ Make sure to fix opacity in the about us section! 
+ 
         
 # webapp

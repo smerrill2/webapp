@@ -4,8 +4,6 @@ import React from 'react';
 import { Card, CardContent } from "@/app/components/card";
 import Image from 'next/image';
 import { Instagram } from 'lucide-react';
-import Header from '../../components/Header'; // Importing Header component
-import Footer from '../../components/Footer'; // Importing Footer component
 
 // Define the props interface for SocialMetric
 interface SocialMetricProps {
