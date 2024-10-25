@@ -43,7 +43,7 @@ export default function HeroSection() {
             <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6 items-start sm:items-center mt-10">
               <LearnMoreButton />
               <Link href="/testimonials" className="hidden md:block">
-                <Button className="bg-transparent hover:bg-white/10 text-black px-6 py-3 rounded-full text-base font-semibold transition-colors border-2 border-black">
+                <Button className="bg-transparent hover:bg-green-100 text-green-600 px-8 py-3 rounded-full text-lg font-semibold transition-colors border-2 border-green-600">
                   Testimonials
                 </Button>
               </Link>
