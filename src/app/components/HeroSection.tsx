@@ -13,11 +13,11 @@ const HeroDeviceAnimation = dynamic(
 
 export default function HeroSection() {
   return (
-    <div className="w-full">
+    <div className="w-full overflow-hidden">
       <div className="container mx-auto px-6"> {/* Match header's container and padding */}
-        <div className="flex flex-col lg:flex-row items-start py-16 lg:py-24">
+        <div className="flex flex-col lg:flex-row items-start py-12 lg:py-20">
           {/* Text Content - Aligned with logo */}
-          <div className="w-full lg:w-1/2 ml-0 lg:ml-4"> {/* Match logo's ml-0 lg:ml-4 */}
+          <div className="w-full lg:w-1/2 ml-0 lg:ml-4 z-10"> {/* Match logo's ml-0 lg:ml-4 */}
             {/* Mobile & Tablet Heading */}
             <h1 className="lg:hidden text-[64px] leading-[1.2] sm:text-[64px] md:text-[72px] font-bold text-white tracking-tight">
               Where
@@ -51,9 +51,9 @@ export default function HeroSection() {
           </div>
 
           {/* Image Section - Modified for edge-to-edge on mobile */}
-          <div className="w-full lg:w-1/2 mt-16 lg:mt-0">
-            <div className="relative -mx-6 lg:mx-0"> {/* Negative margin to counteract container padding */}
-              <div className="w-full transform scale-100 sm:scale-105 md:scale-110 lg:scale-100 
+          <div className="w-full lg:w-1/2 mt-12 lg:mt-0 relative">
+            <div className="relative -mx-6 lg:mx-0 lg:-mr-[15vw]"> {/* Negative margin to counteract container padding */}
+              <div className="w-full transform scale-100 sm:scale-130 md:scale-110 lg:scale-100 
                           transition-transform duration-300">
                 <HeroDeviceAnimation />
               </div>

@@ -11,17 +11,18 @@ const PricingPage: React.FC = () => {
       <main className="container mx-auto px-4 py-16">
         {/* Page Title */}
         <motion.h1 
-          className="text-5xl font-bold mb-8 text-center"
+          className="text-5xl font-bold mb-8 text-center text-white" // Added "text-white" class
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
+          
         >
           Transparent Pricing
         </motion.h1>
         
         {/* Page Description */}
         <motion.p 
-          className="text-xl text-center mb-12 max-w-2xl mx-auto"
+          className="text-xl text-center mb-12 max-w-2xl mx-auto text-white" // Added "text-white" class
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}

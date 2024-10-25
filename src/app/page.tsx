@@ -50,22 +50,22 @@ export default function HomePage() {
                   <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
                     Boosting Your Online Success
                   </h2>
-                  <p className="text-gray-700 font-light text-xl leading-relaxed max-w-[540px]">
+                  <p className="text-gray-700 font-semi-bold text-xl leading-relaxed max-w-[540px]">
                     At LawnLogic, we use a customer-centric approach to deliver maximum value to your customers. Transparency and usability are the core of our business.
                   </p>
-                  <ul className="space-y-6">
-                    {[
-                      'Converting Website Visitors into Booked Lawn Care Clients',
-                      'Smart Scheduling Systems that Work While You Sleep',
-                      'Dominating Local Search Results in Your Service Area',
-                      'AI-Powered Lead Capture - Never Miss an Opportunity',
-                    ].map((item, index) => (
-                      <li key={index} className="flex items-start space-x-4">
-                        <CheckIcon className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
-                        <span className="text-gray-700 text-lg">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
+<ul className="space-y-6">
+  {[
+    'Converting website visitors into booked lawn care clients',
+    'Smart scheduling systems that work while you sleep',
+    'Dominating local search results in your service area',
+    'AI-powered lead capture - never miss an opportunity',
+  ].map((item, index) => (
+    <li key={index} className="flex items-start space-x-4">
+      <CheckIcon className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
+      <span className="text-gray-700 text-lg">{item}</span>
+    </li>
+  ))}
+</ul>
                   <div className="flex flex-row gap-4 pt-4">
                     <Link href="/testimonials">
                       <Button className="bg-transparent hover:bg-green-100 text-green-600 px-8 py-3 rounded-full text-lg font-semibold transition-colors border-2 border-green-600">

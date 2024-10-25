@@ -80,7 +80,7 @@ const FAQItemComponent: React.FC<{ item: FAQItem; index: number; isOpen: boolean
     >
       <button
         onClick={onClick}
-        className="flex justify-between items-center w-full text-left p-4 bg-white/10 hover:bg-white/20 backdrop-blur-lg rounded-lg transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-green-500"
+        className="flex justify-between items-center w-full text-left p-4 bg-white/10 hover:bg-white/20 backdrop-blur-lg rounded-lg transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-green-500 text-white"
         aria-expanded={isOpen}
         aria-controls={`faq-answer-${index}`}
       >
@@ -91,7 +91,7 @@ const FAQItemComponent: React.FC<{ item: FAQItem; index: number; isOpen: boolean
         {isOpen && (
           <motion.div
             id={`faq-answer-${index}`}
-            className="mt-2 p-4 bg-white/5 backdrop-blur-lg rounded-lg overflow-hidden"
+            className="mt-2 p-4 bg-white/5 backdrop-blur-lg rounded-lg overflow-hidden text-white"
             initial="closed"
             animate="open"
             exit="closed"
@@ -116,7 +116,7 @@ export default function FAQPage() {
   return (
       <main className="container mx-auto px-4 py-16">
         <motion.h1 
-          className="text-5xl font-bold mb-8 text-center"
+          className="text-5xl font-bold mb-8 text-center text-white"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -125,7 +125,7 @@ export default function FAQPage() {
         </motion.h1>
         
         <motion.p 
-          className="text-xl text-center mb-12 max-w-2xl mx-auto"
+          className="text-xl text-center mb-12 max-w-2xl mx-auto text-white"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}

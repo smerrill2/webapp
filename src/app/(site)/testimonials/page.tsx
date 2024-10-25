@@ -45,7 +45,7 @@ export default function WSUTestimonial() {
                 className="w-24 h-auto mr-4"
               />
               <div>
-                <h1 className="text-4xl md:text-5xl font-bold mb-2">Wichita State University</h1>
+                <h1 className="text-4xl text-white md:text-5xl font-bold mb-2">Wichita State University</h1>
                 <p className="text-xl text-gray-300 mb-4">Elevating Academic Excellence through Digital Engagement</p>
               </div>
             </div>
@@ -62,7 +62,7 @@ export default function WSUTestimonial() {
 
           {/* Content Section */}
           <section className="mt-8">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Growth with Them</h2>
+            <h2 className="text-3xl md:text-4xl text-white font-bold mb-4">Our Growth with Them</h2>
             <p className="text-lg text-gray-300 leading-relaxed mb-4">
               Beginning in the Summer of &#39;24, I helped curate and plan a social media strategy to increase the number of
               followers on their accounts, while the goal was to increase the graduate applicant pool.
