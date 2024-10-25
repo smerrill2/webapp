@@ -1,101 +1,66 @@
-// src/app/pages/HeroSection.tsx
-
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import dynamic from 'next/dynamic';
 import { Button } from '@/app/components/button';
 import Link from 'next/link';
 import LearnMoreButton from './LearnMoreButton';
-import BlinkingButton from '@/app/components/BlinkingButton';
 
-// Dynamically import the HeroDeviceAnimation component
 const HeroDeviceAnimation = dynamic(
   () => import('@/app/components/HeroDeviceAnimation'),
   { ssr: false }
 );
 
-// Dynamically import the PhoneDeviceAnimation component
-const PhoneDeviceAnimation = dynamic(
-  () => import('@/app/components/PhoneDeviceAnimation'),
-  { ssr: false }
-);
-
 export default function HeroSection() {
-  const [isLargeScreen, setIsLargeScreen] = useState<boolean | null>(null);
-
-  useEffect(() => {
-    const checkScreenSize = () => {
-      setIsLargeScreen(window.innerWidth >= 768); // md breakpoint (768px)
-    };
-
-    checkScreenSize(); // Initial check
-
-    window.addEventListener('resize', checkScreenSize);
-    return () => window.removeEventListener('resize', checkScreenSize);
-  }, []);
-
-  if (isLargeScreen === null) {
-    return null; // Optionally, return a loader or placeholder
-  }
-
   return (
-    <section className="mt-16 sm:mt-12 md:mt-4">
-      <div className="flex flex-col md:flex-row items-center">
-        {/* Text Content */}
-        <div className="w-full md:w-1/2 space-y-4 md:space-y-6 md:pr-8 text-left">
-          
-          {/* Mobile Heading */}
-          <h1 className="md:hidden text-6xl font-bold text-white flex flex-col space-y-2">
-            Where
-            <span>
+    <div className="w-full">
+      <div className="container mx-auto px-6"> {/* Match header's container and padding */}
+        <div className="flex flex-col lg:flex-row items-start py-16 lg:py-24">
+          {/* Text Content - Aligned with logo */}
+          <div className="w-full lg:w-1/2 ml-0 lg:ml-4"> {/* Match logo's ml-0 lg:ml-4 */}
+            {/* Mobile & Tablet Heading */}
+            <h1 className="lg:hidden text-[64px] leading-[1.2] sm:text-[64px] md:text-[72px] font-bold text-white tracking-tight">
+              Where
+              <br />
               Lawn Care
               <br />
-              <span className="whitespace-nowrap">
-                Solutions
-                <br />
-                Begin
-                <BlinkingButton />
-              </span>
-            </span>
-          </h1>
-          
-          {/* Desktop Heading */}
-          <h1 className="hidden md:block text-5xl sm:text-6xl lg:text-7xl font-bold text-white items-center space-x-2">
-            Where Lawn Care Solutions Begin<BlinkingButton />
-          </h1>
-          
-          {/* Short Subheading for Mobile */}
-          <p className="text-gray-300 font-light text-lg leading-relaxed sm:text-lg sm:leading-relaxed md:hidden">
-          We are a modern lawn care solutions agency that works <br />with you to maximize the amount of revenue you get from customers coming in. We create websites that convert and funnels that ensure no customer ever gets away.
-          </p>
+              Solutions
+              <br />
+              Begin
+            </h1>
 
-          {/* Long Subheading for Desktop */}
-          <p className="text-gray-300 font-light text-base leading-relaxed sm:text-lg sm:leading-relaxed hidden md:block">
-            We are a modern lawn care solutions agency that works with you to maximize the amount of revenue you get from customers coming in. We create websites that convert and funnels that ensure no customer ever gets away.
-          </p>
+            {/* Desktop Heading */}
+            <h1 className="hidden lg:block text-[72px] xl:text-[86px] font-bold text-white leading-[1.1] tracking-tight">
+              Where Lawn Care Solutions Begin
+            </h1>
 
-          <div className="flex flex-row space-x-4 items-center mt-4">
-            <LearnMoreButton />
+            {/* Subheading with proper spacing */}
+            <p className="text-gray-300 font-light text-l sm:text-2xl leading-relaxed mt-8 max-w-[540px]">
+              We craft high-converting websites and sales funnels exclusively for lawn care professionals, helping you focus on what matters - growing your business and maintaining beautiful lawns.
+            </p>
 
-            {/* Testimonials Button - Hidden on Mobile */}
-            <Link href="/testimonials" className="hidden md:block">
-              <Button className="bg-transparent hover:bg-white/10 text-white px-6 py-3 rounded-full text-base font-semibold transition-colors border-2 border-white">
-                Testimonials
-              </Button>
-            </Link>
+            {/* Buttons with proper spacing */}
+            <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6 items-start sm:items-center mt-10">
+              <LearnMoreButton />
+              <Link href="/testimonials" className="hidden md:block">
+                <Button className="bg-transparent hover:bg-white/10 text-black px-6 py-3 rounded-full text-base font-semibold transition-colors border-2 border-black">
+                  Testimonials
+                </Button>
+              </Link>
+            </div>
+          </div>
+
+          {/* Image Section - Modified for edge-to-edge on mobile */}
+          <div className="w-full lg:w-1/2 mt-16 lg:mt-0">
+            <div className="relative -mx-6 lg:mx-0"> {/* Negative margin to counteract container padding */}
+              <div className="w-full transform scale-100 sm:scale-105 md:scale-110 lg:scale-100 
+                          transition-transform duration-300">
+                <HeroDeviceAnimation />
+              </div>
+            </div>
           </div>
         </div>
-
-        {/* Device Animation */}
-        <div className="w-full md:w-1/2 flex justify-center mt-8 md:mt-0">
-          {isLargeScreen ? (
-            <HeroDeviceAnimation />
-          ) : (
-            <PhoneDeviceAnimation />
-          )}
-        </div>
       </div>
-    </section>
+    </div>
   );
 }

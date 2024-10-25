@@ -8,8 +8,6 @@ import Footer from '@/app/components/Footer'
 
 const PrivacyPage: React.FC = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-green-950 to-black text-white">
-      <Header />
       <main className="container mx-auto px-4 py-16">
         <motion.h1 
           className="text-5xl font-bold mb-8 text-center"
@@ -81,8 +79,7 @@ ely assigned to you and can only be read by a web server in the domain that issu
           </Card>
         </motion.div>
       </main>
-      <Footer />
-    </div>
+
   )
 
 };

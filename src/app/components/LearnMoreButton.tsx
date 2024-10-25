@@ -44,9 +44,9 @@ export default function LearnMoreButton() {
     <Button
       onClick={scrollToForm}
       variant="default" // or another variant as needed
-      className="bg-pink-500 hover:bg-pink-600 font-semibold transition-colors rounded-full" // Ensure rounded corners
+      className="bg-pink-500 hover:bg-pink-600 font-semibold text-white rounded-full" // Ensure rounded corners
     >
-      Start Your Free Web Mockup!
+      Get Started Free!
     </Button>
   );
 }

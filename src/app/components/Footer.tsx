@@ -1,76 +1,83 @@
+// src/app/components/Footer.tsx
+
 import Link from "next/link";
 import Image from "next/image";
 import { Facebook, Linkedin } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="bg-green-950 text-white py-12 mt-20">
-      <div className="container mx-auto px-8">
-        <div className="flex flex-col md:flex-row justify-between items-center mb-8">
-          <div className="mb-4 md:mb-0">
-            <p className="font-semibold mb-2">Follow us</p>
-            <div className="flex space-x-4">
-              <a
-                href="https://www.facebook.com/yourpage"
-                className="text-gray-400 hover:text-white"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Facebook size={24} />
-              </a>
-              <a
-                href="https://www.linkedin.com/in/yourprofile"
-                className="text-gray-400 hover:text-white"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Linkedin size={24} />
-              </a>
-            </div>
+    <footer className="bg-transparent text-white py-8 border-t border-gray-400">
+      <div className="container mx-auto px-4">
+        {/* Top Section */}
+        <div className="flex flex-col items-center space-y-6 md:flex-row md:justify-between md:space-y-0">
+          {/* Social Media */}
+          <div className="flex space-x-4">
+            <a
+              href="https://www.facebook.com/yourpage"
+              className="text-gray-400 hover:text-white transition-colors"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+            >
+              <Facebook size={24} />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/yourprofile"
+              className="text-gray-400 hover:text-white transition-colors"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+            >
+              <Linkedin size={24} />
+            </a>
           </div>
+
+          {/* Navigation Links */}
           <nav>
-            <ul className="flex flex-wrap justify-center md:justify-end space-x-6">
+            <ul className="flex flex-col items-center space-y-2 md:flex-row md:space-y-0 md:space-x-6">
               <li>
-                <Link href="/about" className="text-gray-400 hover:text-white">
+                <Link href="/about" className="text-gray-400 hover:text-white transition-colors">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link href="/FAQ" className="text-gray-400 hover:text-white">
-                  FAQ Page
+                <Link href="/FAQ" className="text-gray-400 hover:text-white transition-colors">
+                  FAQ
                 </Link>
               </li>
               <li>
-                <Link href="/pricing" className="text-gray-400 hover:text-white">
+                <Link href="/pricing" className="text-gray-400 hover:text-white transition-colors">
                   Pricing
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-gray-400 hover:text-white">
+                <Link href="/contact" className="text-gray-400 hover:text-white transition-colors">
                   Help
                 </Link>
               </li>
             </ul>
           </nav>
         </div>
-        <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-green-900">
-          <div className="mb-4 md:mb-0">
-            <div className="w-32 h-12 relative">
-              <Image
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/LawnLogic-lj1xAFOu4alYkwH0Pv6mGowYbHJuL7.png"
-                alt="LawnLogic Logo"
-                layout="fill"
-                objectFit="contain"
-                objectPosition="left center"
-              />
-            </div>
+
+        {/* Bottom Section */}
+        <div className="mt-6 flex flex-col items-center space-y-4 md:flex-row md:justify-between">
+          {/* Logo */}
+          <div className="w-24 h-12 relative">
+            <Image
+              src="/images/LawnLogicFooter.png" // Ensure the path is correct
+              alt="LawnLogic Logo"
+              fill
+              style={{ objectFit: 'contain', objectPosition: 'right center' }}
+            />
           </div>
-          <div className="text-gray-400 text-sm">
-            <span>© 2024 LawnLogic Inc.</span>
-            <Link href="/terms" className="ml-4 hover:text-white">
+
+          {/* Legal Links */}
+          <div className="flex flex-col items-center space-y-2 md:flex-row md:space-y-0 md:space-x-4">
+            <span className="text-gray-400 text-sm">© 2024 LawnLogic Inc.</span>
+            <Link href="/terms" className="text-gray-400 hover:text-white transition-colors">
               Terms
             </Link>
-            <Link href="/privacy" className="ml-4 hover:text-white">
+            <Link href="/privacy" className="text-gray-400 hover:text-white transition-colors">
               Privacy
             </Link>
           </div>

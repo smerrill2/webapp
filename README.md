@@ -44,4 +44,18 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 
 10/13/24 Noon.
+
+10/22/24 
+    Updated the layout to finally include a gradient on top
+    IT has since broken things so I will need to fix all LINKS - 
+    In order of operations
+        - Move Hero Section out of the Layout and into the main page again
+        - Make sure all links work
+        - Footer is white with black text, make sure it uses correct logo going forward. 
+        - Form Submission still works
+        - Rest of the pages follow the new layout.tsx format for increasing usability
+        - SEO and then outreach following that 
+        - Fix mobile site, maybe this can be in the layout.tsx file that can be automated - would this use reacthooks?
+
+        
 # webapp

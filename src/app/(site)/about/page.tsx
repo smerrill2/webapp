@@ -10,10 +10,7 @@ import { CheckIcon } from 'lucide-react';
 
 export default function AboutUsPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-green-950 to-black text-white font-inter">
-      <Header />
-
-      <main className="container mx-auto px-4 sm:px-8">
+   <main className="container mx-auto px-4 sm:px-8">
         {/* About Us Section */}
         <AboutUsSection />
 
@@ -70,7 +67,7 @@ export default function AboutUsPage() {
 
         {/* Example: Our Team */}
         <section className="py-16 px-4 sm:px-6 lg:px-8 bg-green-900/30  rounded-xl">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">The Face of the Company</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Who you'll be interfacing with:</h2>
           <div className="grid md:grid-cols-1 gap-8">
             {/* Team Member */}
             <div className="flex flex-col items-center text-center">
@@ -87,8 +84,5 @@ export default function AboutUsPage() {
           </div>
         </section>
       </main>
-
-      <Footer />
-    </div>
   );
 }

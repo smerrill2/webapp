@@ -26,8 +26,12 @@ const Header = () => {
   }, [isMenuOpen]);
 
   return (
-    <header className="container mx-auto px-6 py-4">
-      <nav className="flex justify-between items-center relative">
+    <header 
+      style={{ background: 'linear-gradient(to right, black, #006400)' }}
+      className="text-white"
+    >
+      <div className="container mx-auto px-6 py-4">
+        <nav className="flex justify-between items-center relative">
         {/* Logo Container */}
         <div className="flex items-center ml-0 lg:ml-4">
           <Link href="/" className="w-60 h-20 relative cursor-pointer">
@@ -61,7 +65,7 @@ const Header = () => {
           <li>
             <Link href="/contact">
               <Button className="bg-pink-500 hover:bg-pink-600 text-white px-4 py-2 rounded-full font-semibold transition-colors flex items-center">
-                <PhoneIcon className="w-4 h-4 mr-2" /> Call Us
+                <PhoneIcon className="w-4 h-4 mr-2" />Call Us
               </Button>
             </Link>
           </li>
@@ -131,15 +135,17 @@ const Header = () => {
             </Link>
           </li>
           <li>
-            <Link
-              href="/contact"
-              onClick={() => setIsMenuOpen(false)}
-              className="block text-gray-800 hover:bg-gray-100 rounded-md px-3 py-2 text-base font-medium items-center"
-            >
-              <PhoneIcon className="w-5 h-5 mr-2" /> Call Us
-            </Link>
-          </li>
+  <Link
+    href="/contact"
+    onClick={() => setIsMenuOpen(false)}
+    className="flex items-center text-gray-800 hover:bg-gray-100 rounded-md px-3 py-2 text-base font-medium"
+  >
+    <PhoneIcon className="w-5 h-5 mr-2" />
+    Call Us
+  </Link>
+</li>
         </ul>
+      </div>
       </div>
     </header>
   );

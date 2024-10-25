@@ -10,8 +10,6 @@ import DemoBookingForm from '@/app/components/BookingForm'
 
 export default function ContactPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-green-950 to-black text-white">
-      <Header />
       <div className="container mx-auto px-4 py-16">
         <motion.h1 
           className="text-5xl font-bold mb-8 text-center text-white"
@@ -35,7 +33,7 @@ export default function ContactPage() {
                   <div className="flex items-center space-x-3">
                     <Mail className="text-green-400" />
                     <a href="mailto:hello@lawnlogicusa.com" className="text-white hover:text-green-400 transition-colors">
-                      hello@lawnlogicusa.com
+                      support@lawnlogic.com
                     </a>
                   </div>
                   <div className="flex items-center space-x-3">
@@ -62,7 +60,5 @@ export default function ContactPage() {
           </motion.div>
         </div>
       </div>
-      <Footer />
-    </div>
   )
 }

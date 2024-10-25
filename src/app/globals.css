@@ -1,21 +1,13 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-    --font-inter: 'Inter', sans-serif;
-    --font-geist-sans: 'Geist Sans', sans-serif;
-    --font-geist-mono: 'Geist Mono', monospace;
-  }
-  
-  body {
-    font-family: var(--font-inter);
-  }
- 
-truncate-250 {
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
+  --font-inter: 'Inter', sans-serif;
+  --font-geist-sans: 'Geist Sans', sans-serif;
+  --font-geist-mono: 'Geist Mono', monospace;
+}
+
+body {
+  font-family: var(--font-inter);
+}

@@ -4,8 +4,8 @@ import React from 'react';
 import { Card, CardContent } from "@/app/components/card";
 import Image from 'next/image';
 import { Instagram } from 'lucide-react';
-import Header from '../components/Header'; // Importing Header component
-import Footer from '../components/Footer'; // Importing Footer component
+import Header from '../../components/Header'; // Importing Header component
+import Footer from '../../components/Footer'; // Importing Footer component
 
 // Define the props interface for SocialMetric
 interface SocialMetricProps {
@@ -34,9 +34,6 @@ const SocialMetric: React.FC<SocialMetricProps> = ({ platform, growth, icon }) =
 
 export default function WSUTestimonial() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-green-950 to-black text-white font-inter">
-      <Header /> {/* Using Header component */}
-
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <main className="space-y-12 py-12">
           {/* Hero Section */}
@@ -85,8 +82,5 @@ export default function WSUTestimonial() {
 
         </main>
       </div>
-
-      <Footer /> {/* Using Footer component */}
-    </div>
   );
 }

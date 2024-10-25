@@ -116,8 +116,6 @@ export default function FAQPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-green-950 to-black text-white">
-      <Header />
       <main className="container mx-auto px-4 py-16">
         <motion.h1 
           className="text-5xl font-bold mb-8 text-center"
@@ -149,7 +147,5 @@ export default function FAQPage() {
           ))}
         </section>
       </main>
-      <Footer />
-    </div>
   )
 }
