@@ -55,7 +55,7 @@ export function GuaranteesSection() {
             <div className="flex flex-col">
               <div className="w-full aspect-square relative rounded-2xl overflow-hidden mb-6">
                 <Image 
-                  src="/images/linkedin-photo.jpeg"
+                  src="/images/landingpage.jpg"
                   alt="Owner Headshot" 
                   fill
                   className="object-cover"
