@@ -4,15 +4,22 @@ import { useState } from 'react'
 import Image from 'next/image';
 
 interface TeamMember {
-  id: number
-  name: string
-  role: string
-  image: string
-  bio: string
-  experience: string
-  specialties: string[]
-  education: string
-  certifications: string[]
+  id: number;
+  name: string;
+  role: string;
+  image: {
+    src: string;
+    alt: string;
+    width: number;
+    height: number;
+    priority: boolean;
+    className: string;
+  };
+  bio: string;
+  experience: string;
+  specialties: string[];
+  education: string;
+  certifications: string[];
 }
 
 const teamMembers: TeamMember[] = [
@@ -20,7 +27,14 @@ const teamMembers: TeamMember[] = [
     id: 1,
     name: "John Lavender",
     role: "Lead Landscaper",
-    image: "/images/plc-team1.jpg",
+    image: {
+      src: "/images/plc-team1.jpg",
+      alt: "John Lavender Headshot",
+      width: 240,
+      height: 240,
+      priority: true,
+      className: "object-cover"
+    },
     bio: "With over 15 years of experience in landscape design and maintenance, John leads our team with passion and expertise.",
     experience: "15+ years in landscape design",
     specialties: [
@@ -40,7 +54,14 @@ const teamMembers: TeamMember[] = [
     id: 2,
     name: "Sarah Johnson",
     role: "Maintenance Supervisor",
-    image: "/images/plc-team2.jpg",
+    image: {
+      src: "/images/plc-team2.jpg",
+      alt: "Sarah Johnson Headshot",
+      width: 240,
+      height: 240,
+      priority: true,
+      className: "object-cover"
+    },
     bio: "Sarah ensures every property receives the highest quality care through her meticulous attention to detail.",
     experience: "10+ years in lawn care",
     specialties: [
@@ -60,7 +81,14 @@ const teamMembers: TeamMember[] = [
     id: 3,
     name: "Mike Williams",
     role: "Tree Care Specialist",
-    image: "/images/plc-team3.jpg",
+    image: {
+      src: "/images/plc-team3.jpg",
+      alt: "Sarah Johnson Headshot",
+      width: 240,
+      height: 240,
+      priority: true,
+      className: "object-cover"
+    },
     bio: "Mike's expertise in arboriculture ensures the health and longevity of your trees and shrubs.",
     experience: "12+ years in arboriculture",
     specialties: [
@@ -107,12 +135,13 @@ export function TeamSection() {
                   >
                     <div className="relative rounded-xl overflow-hidden">
                       <Image
-                        src={member.image}
-                        alt={member.name}
-                        fill
-                        className="object-cover"
+                        src={member.image.src}
+                        alt={member.image.alt}
+                        width={member.image.width}
+                        height={member.image.height}
+                        priority={member.image.priority}
+                        className={member.image.className}
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                        priority
                       />
                       <div className={`absolute inset-0 transition-opacity ${
                         selectedMember.id === member.id
