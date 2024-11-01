@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 export function GuaranteesSection() {
     const baseUrl = "lawnlogic.agency/portfolio/porcupinelawncare"
     
@@ -34,7 +36,7 @@ export function GuaranteesSection() {
         description: "Not happy with our service? We'll make it right or you don't pay. Your satisfaction is our priority.",
         icon: (
           <svg className="w-6 h-6 text-green-500" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59-8-8 8zm4.59-12.42L10 14.17l-2.59-2.58L6 13l4 4 8-8z"/>
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8-3.59 8-8-3.59-8-8 8zm4.59-12.42L10 14.17l-2.59-2.58L6 13l4 4 8-8z"/>
           </svg>
         )
       },
@@ -67,10 +69,13 @@ export function GuaranteesSection() {
             <div className="lg:col-span-4">
               <div className="flex md:block items-center gap-4 mb-8 md:mb-6">
                 <div className="w-24 h-24 md:w-auto md:h-auto md:aspect-square relative rounded-2xl md:rounded-3xl overflow-hidden mb-0 md:mb-6 shrink-0">
-                  <img 
+                  <Image 
                     src="/images/plc-owner.png"
                     alt="Owner Headshot" 
-                    className="object-cover w-full h-full"
+                    width={240}
+                    height={240}
+                    priority
+                    className="object-cover"
                   />
                 </div>
                 <div className="bg-gray-50 p-4 rounded-xl flex-1 md:block">

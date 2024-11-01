@@ -2,7 +2,7 @@
 
 'use client';
 
-import React from 'react';
+import React from 'react'
 import Header from '@/app/components/Header';
 import Footer from '@/app/components/Footer';
 import HeroSection from '@/app/components/HeroSection';
@@ -14,9 +14,24 @@ import { GuaranteesSection } from '@/app/components/Guarantees';
 import { PricingSection } from '@/app/components/PricingSection';
 
 const testimonials = [
-  // Add your testimonials data here
-  { id: 1, name: 'John Doe', text: 'Great service!' },
-  { id: 2, name: 'Jane Smith', text: 'Highly recommend!' },
+  {
+    name: "Stephan C.",
+    role: "Owner of Elite Lawn Maintenance",
+    content: "As a lawn care business owner for 15 years, I've never seen such an effective digital solution. LawnLogic truly understands what we need to grow and succeed in this industry.",
+    image: "/images/StephanC.jpg"
+  },
+  {
+    name: "Tom L.", 
+    role: "Founder of Premier Lawn Services",
+    content: "The difference in our business operations before and after LawnLogic is night and day. Their technology made scaling our lawn care company so much easier than we thought possible.",
+    image: "/images/TomL.jpg"
+  },
+  {
+    name: "Dave L.",
+    role: "Owner of HedgeHog Lawn Care",
+    content: "LawnLogic's ability to put together a unique design while transferring visitors into customers has helped immensely. I'm happy we chose him for our website!",
+    image: "/images/plc-owner.jpg"
+  },
 ];
 
 export default function HomePage() {
