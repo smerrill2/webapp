@@ -33,12 +33,18 @@ export function Header() {
           <div className="hidden md:flex justify-between items-center h-24">
             <Link href={`https://${baseUrl}`} className="flex-shrink-0">
               <Image
-                src="/path/to/image.png" // Update with actual image path
-                alt="Description" // Add appropriate alt text
-                width={24} // Adjust size as needed
-                height={24} // Adjust size as needed
-                className="w-auto h-auto" // Keep responsive sizing
-                priority={true} // If this is above the fold
+                src="/images/HedgeHoglawncare.png"
+                alt="HedgeHog Lawn Care Logo"
+                width={100}
+                height={60}
+                priority={true}
+                className="w-auto h-auto"
+                style={{ maxWidth: '100%', height: 'auto' }}
+                onError={(e) => {
+                  console.error('Error loading logo:', e);
+                  // Fallback to text if image fails
+                  e.currentTarget.style.display = 'none';
+                }}
               />
             </Link>
 
@@ -63,12 +69,18 @@ export function Header() {
           <div className="md:hidden flex justify-between items-center h-20">
             <Link href={`https://${baseUrl}`} className="flex-shrink-0">
               <Image
-                src="/path/to/image.png" // Update with actual image path
-                alt="Description" // Add appropriate alt text
-                width={24} // Adjust size as needed
-                height={24} // Adjust size as needed
-                className="w-auto h-auto" // Keep responsive sizing
-                priority={true} // If this is above the fold
+                src="/images/HedgeHoglawncare.png"
+                alt="HedgeHog Lawn Care Logo"
+                width={100}
+                height={60}
+                priority={true}
+                className="w-auto h-auto"
+                style={{ maxWidth: '100%', height: 'auto' }}
+                onError={(e) => {
+                  console.error('Error loading logo:', e);
+                  // Fallback to text if image fails
+                  e.currentTarget.style.display = 'none';
+                }}
               />
             </Link>
 

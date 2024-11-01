@@ -30,7 +30,7 @@ const teamMembers: TeamMember[] = [
     image: {
       src: "/images/plc-team1.jpg",
       alt: "John Lavender Headshot",
-      width: 240,
+      width: 320,
       height: 240,
       priority: true,
       className: "object-cover"
@@ -57,7 +57,7 @@ const teamMembers: TeamMember[] = [
     image: {
       src: "/images/plc-team2.jpg",
       alt: "Sarah Johnson Headshot",
-      width: 240,
+      width: 320,
       height: 240,
       priority: true,
       className: "object-cover"
@@ -84,7 +84,7 @@ const teamMembers: TeamMember[] = [
     image: {
       src: "/images/plc-team3.jpg",
       alt: "Sarah Johnson Headshot",
-      width: 240,
+      width: 320,
       height: 240,
       priority: true,
       className: "object-cover"

@@ -14,6 +14,13 @@ const nextConfig = {
   },
   transpilePackages: ['framer-motion'], // Ensure framer-motion is transpiled
   // Add any other Next.js configurations here
+  webpack(config) {
+    config.module.rules.push({
+      test: /\.svg$/,
+      use: ['@svgr/webpack']
+    });
+    return config;
+  }
 };
 
 module.exports = nextConfig;

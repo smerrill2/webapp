@@ -19,7 +19,7 @@ interface PortfolioItem {
       id: 1,
       title: "Complete Yard Transformation",
       description: "Transformed an overgrown yard into a pristine landscape with modern design elements",
-      image: "/images/plc-portfolio1.png",
+      image: "/images/plc-portfolio1.jpg",
       size: "1/4 Acre",
       duration: "2 Weeks",
       results: "Increased property value by 15%"
