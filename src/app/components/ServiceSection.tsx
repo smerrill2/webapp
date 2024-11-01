@@ -9,11 +9,6 @@ import {
   ChevronRight
 } from 'lucide-react';
 
-// Define interfaces
-interface ExtendedInfo {
-  title: string;
-  details: string[];
-}
 
 const GrassSVG = () => (
   <svg 

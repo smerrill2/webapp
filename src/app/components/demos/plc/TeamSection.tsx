@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Image from 'next/image';
 
 interface TeamMember {
   id: number
@@ -105,10 +106,13 @@ export function TeamSection() {
                     }`}
                   >
                     <div className="relative rounded-xl overflow-hidden">
-                      <img
+                      <Image
                         src={member.image}
                         alt={member.name}
-                        className="w-full aspect-square object-cover"
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        priority
                       />
                       <div className={`absolute inset-0 transition-opacity ${
                         selectedMember.id === member.id

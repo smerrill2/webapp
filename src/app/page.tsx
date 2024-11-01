@@ -3,7 +3,6 @@
 'use client';
 
 import React from 'react';
-import dynamic from 'next/dynamic';
 import Header from '@/app/components/Header';
 import Footer from '@/app/components/Footer';
 import HeroSection from '@/app/components/HeroSection';
@@ -14,29 +13,13 @@ import BookingForm from '@/app/components/BookingForm';
 import { GuaranteesSection } from '@/app/components/Guarantees';
 import { PricingSection } from '@/app/components/PricingSection';
 
-const TestimonialCard = dynamic(
-  () => import('@/app/components/ui/TestimonialCard'),
-  {
-    loading: () => <p>Loading testimonials...</p>,
-    ssr: true,
-  }
-);
+const testimonials = [
+  // Add your testimonials data here
+  { id: 1, name: 'John Doe', text: 'Great service!' },
+  { id: 2, name: 'Jane Smith', text: 'Highly recommend!' },
+];
 
 export default function HomePage() {
-  const testimonials = [
-    {
-      name: "John Doe",
-      role: "Business Owner",
-      content: "The website exceeded my expectations. Great service!",
-      image: "/images/testimonial1.jpg"
-    },
-    {
-      name: "Jane Smith",
-      role: "Marketing Director",
-      content: "Outstanding web development service. Highly recommended!",
-      image: "/images/testimonial2.jpg"
-    }
-  ];
 
   return (
     <>
