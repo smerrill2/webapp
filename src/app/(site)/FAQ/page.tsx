@@ -6,6 +6,8 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { faqData } from '@/app/data/faqData';
 import { ChevronDown, ChevronUp } from 'lucide-react';
+
+
 export default function FAQPage() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const [activeCategory, setActiveCategory] = useState('contracts');
