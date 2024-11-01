@@ -47,7 +47,7 @@ const PricingPage: React.FC = () => {
                     "Expert recommendations",
                     "No obligation"
                 ]}
-                cta="Book Free Consultation"
+                cta="Book Now"
             />
           </motion.div>
 
@@ -59,14 +59,14 @@ const PricingPage: React.FC = () => {
           >
             <PricingTier
               title="Starter"
-              price="1,500"
-              monthlyFee="First 3 months free, $30/month thereafter"
+              price="199/month"
               features={[
-                "Up to 15 pages",
+                "Up to 7 pages",
                 "Professional design",
                 "Mobile responsive",
                 "Basic SEO optimization",
-                "Monthly maintenance"
+                "Monthly maintenance",
+                "Google Analytics integration"
               ]}
               cta="Get Started"
             />
@@ -80,14 +80,14 @@ const PricingPage: React.FC = () => {
           >
             <PricingTier
               title="Pro"
-              price="2,500"
-              monthlyFee="First 3 months free, $50/month thereafter"
+              price="299/month"
               features={[
                 "Everything in Starter",
+                "Up to 15 pages",
                 "White-labeled application",
                 "Watermark removal",
                 "Advanced SEO optimization",
-                "Priority support"
+                "Google Analytics "
               ]}
               cta="Contact Us"
             />
@@ -101,8 +101,10 @@ const PricingPage: React.FC = () => {
           >
             <PricingTier
               title="Platinum"
-              price="Custom"
+              price="499/month"
               features={[
+                "Everything in Pro",
+                "Up to 50 pages",
                 "Fully reactive website",
                 "Custom animations",
                 "White-labeled app with CMS",

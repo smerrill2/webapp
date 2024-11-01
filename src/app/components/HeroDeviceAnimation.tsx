@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 export default function HeroDeviceAnimation() {
   return (
-    <div className="relative w-full h-[75vh] md:h-[75vh] lg:h-[80vh] -mt-20 sm:-mt-16 md:mt-0"> {/* Reduced negative margin slightly */}
+    <div className="relative w-full h-[75vh] md:h-[75vh] lg:h-[70vh] -mt-20 sm:-mt-16 md:mt-0"> {/* Reduced negative margin slightly */}
       {/* Image Wrapper */}
       <div className="absolute inset-0 w-full md:w-[170%] lg:w-[185%] h-full transform 
                       translate-x-[-5%] translate-y-[-10%] md:translate-y-0 md:translate-x-[-12%] lg:translate-x-[-20%]">
