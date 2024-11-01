@@ -2,7 +2,7 @@
 'use client'
 
 import { useState } from 'react'
-import { HomeLink, HomeButton } from '@/app/components/demos/plc/HomeLink'
+import { HomeButton } from '@/app/components/demos/plc/HomeLink'
 
 interface ServiceItem {
   title: string

@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
+import Image from 'next/image'
 
 interface PortfolioItem {
     id: number
@@ -85,10 +86,13 @@ interface PortfolioItem {
               <div className="grid md:grid-cols-2 gap-6 p-6">
                 {/* Project Image */}
                 <div className="relative">
-                  <img 
+                  <Image 
                     src={portfolioItems[currentIndex].image}
                     alt={portfolioItems[currentIndex].title}
+                    width={800} 
+                    height={500}
                     className="w-full h-[500px] object-cover rounded-lg"
+                    priority={true}
                   />
                   <div className="absolute bottom-4 left-4 right-4 bg-black/50 text-white p-4 rounded-lg backdrop-blur-sm">
                     <p className="font-semibold">After Completion</p>

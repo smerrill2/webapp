@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { Menu, X } from 'lucide-react'
+import Image from 'next/image'
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -31,13 +32,13 @@ export function Header() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex justify-between items-center h-24">
             <Link href={`https://${baseUrl}`} className="flex-shrink-0">
-              <img 
-                src="/images/Porcupine-Logo.svg" 
-                alt="Porcupine Lawn Care" 
-                className="h-16 w-auto transition-all duration-300"
-                style={{
-                  height: isScrolled ? '3rem' : '4rem'
-                }}
+              <Image
+                src="/path/to/image.png" // Update with actual image path
+                alt="Description" // Add appropriate alt text
+                width={24} // Adjust size as needed
+                height={24} // Adjust size as needed
+                className="w-auto h-auto" // Keep responsive sizing
+                priority={true} // If this is above the fold
               />
             </Link>
 
@@ -61,10 +62,13 @@ export function Header() {
           {/* Mobile Navigation */}
           <div className="md:hidden flex justify-between items-center h-20">
             <Link href={`https://${baseUrl}`} className="flex-shrink-0">
-              <img 
-                src="/images/Porcupine-Logo.svg" 
-                alt="Porcupine Lawn Care" 
-                className="h-12 w-auto"
+              <Image
+                src="/path/to/image.png" // Update with actual image path
+                alt="Description" // Add appropriate alt text
+                width={24} // Adjust size as needed
+                height={24} // Adjust size as needed
+                className="w-auto h-auto" // Keep responsive sizing
+                priority={true} // If this is above the fold
               />
             </Link>
 

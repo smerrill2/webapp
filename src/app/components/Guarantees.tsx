@@ -54,10 +54,13 @@ export function GuaranteesSection() {
           <div className="lg:col-span-5 lg:sticky lg:top-8">
             <div className="flex flex-col">
               <div className="w-full aspect-square relative rounded-2xl overflow-hidden mb-6">
-                <img 
+                <Image 
                   src="/images/linkedin-photo.jpeg"
                   alt="Owner Headshot" 
-                  className="object-cover w-full h-full"
+                  fill
+                  className="object-cover"
+                  priority // Since this is above the fold
+                  sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </div>
               <div className="bg-gray-50 p-6 rounded-xl relative">

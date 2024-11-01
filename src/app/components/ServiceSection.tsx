@@ -15,14 +15,6 @@ interface ExtendedInfo {
   details: string[];
 }
 
-interface ServiceCardProps {
-  title: string;
-  icon: React.ElementType;
-  description: string;
-  extendedInfo: string[];
-  link: string;
-}
-
 const GrassSVG = () => (
   <svg 
     className="w-full h-24"
@@ -42,6 +34,14 @@ const GrassSVG = () => (
     ))}
   </svg>
 );
+
+interface ServiceCardProps {
+  title: string;
+  icon: React.ElementType;
+  description: string;
+  extendedInfo: string[];
+  link: string;
+}
 
 const ServiceCard: React.FC<ServiceCardProps> = ({ 
   title, 
@@ -100,12 +100,12 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
           <div className="absolute inset-x-6 transition-all duration-500 
             opacity-0 translate-y-8 group-hover:opacity-100 group-hover:translate-y-0">
             <ul className="space-y-2 text-gray-100">
-              {extendedInfo.map((info, index) => (
+                {extendedInfo.map((info: string, index: number) => (
                 <li key={index} className="flex items-center">
                   <ChevronRight size={16} className="mr-2" />
                   {info}
                 </li>
-              ))}
+                ))}
             </ul>
           </div>
 
@@ -243,7 +243,7 @@ const ServicesSection = () => {
           <p className="text-xl text-gray-600 italic">
             "We offer best in class service without anything holding us back"
           </p>
-          <p className="text-green-600 mt-2">- Spencer M. Davis</p>
+          <p className="text-green-600 mt-2">- Spencer M. </p>
         </div>
 
         {/* Services Grid */}
