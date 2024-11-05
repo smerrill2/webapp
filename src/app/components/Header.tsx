@@ -2,14 +2,13 @@
 
 import React, { useState, useEffect, } from 'react';
 import Link from 'next/link';
-import { Button } from './button'; // Adjust the path according to your project structure
+import { Button } from './button';
 import Image from 'next/image';
-import { PhoneIcon, MenuIcon, XIcon } from 'lucide-react'; // Import icons
+import { PhoneIcon, MenuIcon, XIcon } from 'lucide-react';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // Close the menu when pressing the 'Esc' key
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape' && isMenuOpen) {
@@ -28,7 +27,7 @@ const Header = () => {
       style={{ background: 'linear-gradient(to right, black, #006400)' }}
       className="text-white"
     >
-      <div className="container mx-auto px-6 py-4">
+      <div className="container mx-auto px-6 py-3">
         <nav className="flex justify-between items-center relative">
         {/* Logo Container */}
         <div className="flex items-center ml-0 lg:ml-4">
@@ -36,11 +35,11 @@ const Header = () => {
             <Image
               src="/images/LawnLogic.png"
               alt="LawnLogic Logo"
-              width={180}  // Reduced from 240
-              height={60}  // Reduced from 80
+              width={175}  // Slightly reduced from 180
+              height={58}  // Slightly reduced from 60
               priority={true}
               quality={85}
-              sizes="(max-width: 768px) 150px, 180px"
+              sizes="(max-width: 768px) 150px, 175px"
               className="object-contain"
             />
           </Link>
@@ -50,35 +49,35 @@ const Header = () => {
         <ul className="hidden md:flex space-x-6 items-center">
           <li>
             <Link href="/about">
-              <Button className="text-lg px-4 py-2 hover:bg-white/10 transition-colors">
+              <Button className="text-lg px-4 py-1.5 hover:bg-white/10 transition-colors">
                 About Us
               </Button>
             </Link>
           </li>
           <li>
             <Link href="/portfolio">
-              <Button className="text-lg px-4 py-2 hover:bg-white/10 transition-colors">
+              <Button className="text-lg px-4 py-1.5 hover:bg-white/10 transition-colors">
                 Portfolio
               </Button>
             </Link>
           </li>
           <li>
             <Link href="/testimonials">
-              <Button className="text-lg px-4 py-2 hover:bg-white/10 transition-colors">
+              <Button className="text-lg px-4 py-1.5 hover:bg-white/10 transition-colors">
                 Testimonials
               </Button>
             </Link>
           </li>
           <li>
             <Link href="/contact">
-              <Button className="bg-pink-500 hover:bg-pink-600 text-white px-4 py-2 rounded-full font-semibold transition-colors flex items-center">
+              <Button className="bg-pink-500 hover:bg-pink-600 text-white px-4 py-1.5 rounded-full font-semibold transition-colors flex items-center">
                 <PhoneIcon className="w-4 h-4 mr-2" />Call Us
               </Button>
             </Link>
           </li>
         </ul>
 
-        {/* Mobile Menu Button */}
+        {/* Rest of the code remains the same */}
         <div className="md:hidden">
           <Button
             variant="outline"
@@ -97,7 +96,6 @@ const Header = () => {
       </nav>
 
       {/* Mobile Slide-in Menu */}
-      {/* Backdrop */}
       <div
         className={`fixed inset-0 bg-black bg-opacity-50 z-40 transition-opacity duration-300 ease-in-out ${
           isMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
@@ -105,7 +103,6 @@ const Header = () => {
         onClick={() => setIsMenuOpen(false)}
       ></div>
 
-      {/* Slide-in Menu */}
       <div
         className={`fixed top-0 right-0 h-full w-64 bg-white shadow-lg z-50 transform transition-transform duration-300 ease-in-out ${
           isMenuOpen ? 'translate-x-0' : 'translate-x-full'
@@ -151,15 +148,15 @@ const Header = () => {
             </Link>
           </li>
           <li>
-  <Link
-    href="/contact"
-    onClick={() => setIsMenuOpen(false)}
-    className="flex items-center text-gray-800 hover:bg-gray-100 rounded-md px-3 py-2 text-base font-medium"
-  >
-    <PhoneIcon className="w-5 h-5 mr-2" />
-    Call Us
-  </Link>
-</li>
+            <Link
+              href="/contact"
+              onClick={() => setIsMenuOpen(false)}
+              className="flex items-center text-gray-800 hover:bg-gray-100 rounded-md px-3 py-2 text-base font-medium"
+            >
+              <PhoneIcon className="w-5 h-5 mr-2" />
+              Call Us
+            </Link>
+          </li>
         </ul>
       </div>
       </div>

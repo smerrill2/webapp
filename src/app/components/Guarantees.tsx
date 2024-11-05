@@ -9,13 +9,20 @@ import {
   ShieldCheck, 
   Search 
 } from 'lucide-react';
+import type { LucideIcon } from 'lucide-react';
 
-// Memoize icon components
-const BenefitIcon = memo(({ Icon }: { Icon: any }) => (
+interface Benefit {
+  title: string;
+  description: string;
+  icon: LucideIcon; // Using LucideIcon type from lucide-react
+}
+
+const BenefitIcon = memo(({ Icon }: { Icon: LucideIcon }) => (
   <Icon size={20} style={{ color: '#16A349' }} />
 ));
+BenefitIcon.displayName = 'BenefitIcon';
 
-const BenefitCard = memo(({ benefit }: { benefit: any }) => (
+const BenefitCard = memo(({ benefit }: { benefit: Benefit }) => (
   <div className="bg-gray-50 p-6 rounded-xl">
     <div className="flex items-center gap-2 mb-3">
       <BenefitIcon Icon={benefit.icon} />
@@ -28,6 +35,7 @@ const BenefitCard = memo(({ benefit }: { benefit: any }) => (
     </p>
   </div>
 ));
+BenefitCard.displayName = 'BenefitCard';
 
 export function GuaranteesSection() {
   const baseUrl = "lawnlogic.agency"

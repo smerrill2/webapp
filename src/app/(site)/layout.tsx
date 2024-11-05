@@ -10,9 +10,9 @@ import { Analytics } from '@vercel/analytics/react';
 export default function SiteLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <div className="fixed w-full z-50 shadow-lg">
-        <Header />
-      </div>
+     <div className="fixed w-full z-50 shadow-[0_8px_16px_-4px_rgba(0,0,0,0.3)]">
+  <Header />
+</div>
 
       {/* Main Content with Gradient Background */}
       <div

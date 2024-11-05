@@ -6,7 +6,14 @@ import Image from 'next/image';
 
 const inter = Inter({ subsets: ['latin'] });
 
-const PortfolioItem = memo(({ image }: { image: any }) => (
+interface ImageProps {
+  src: string;
+  alt: string;
+  link: string;
+  title: string;
+}
+
+const PortfolioItem = memo(({ image }: { image: ImageProps }) => (
   <Link href={image.link} className="block group relative">
     <div className="relative aspect-[16/9] w-full overflow-hidden rounded-2xl">
       <Image
@@ -25,6 +32,7 @@ const PortfolioItem = memo(({ image }: { image: any }) => (
     </div>
   </Link>
 ));
+PortfolioItem.displayName = 'PortfolioItem';
 
 export default function PortfolioSection() {
   const portfolioImages = [

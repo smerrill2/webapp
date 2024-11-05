@@ -1,61 +1,71 @@
 import React, { memo } from 'react';
 import { Check, X } from 'lucide-react';
-import { Button } from "@/app/components/button";
 import Link from 'next/link';
 
-const FeatureItem = memo(({ feature, featured }: { feature: any, featured: boolean }) => (
-  <li className="flex items-center gap-3">
-    {feature.included ? 
-      <Check className={`w-5 h-5 ${featured ? 'text-white' : 'text-[#16A349]'}`} /> : 
-      <X className="w-5 h-5 text-gray-500" />}
-    <span className={`text-sm ${feature.included ? 
-      (featured ? 'text-white' : 'text-white') : 
-      'text-gray-400'}`}>
-      {feature.name}
-    </span>
-  </li>
-));
+interface Feature {
+  name: string;
+  included: boolean;
+}
 
-const PricingCard = memo(({ pkg }: { pkg: any }) => (
-  <div className={`rounded-2xl p-8 ${pkg.featured ? 
-    'bg-[#16A349] border-2 border-white' : 
-    'bg-[#133420]'}`}>
-    <div className="mb-8">
-      <h3 className={`text-2xl font-bold mb-2 ${
-        pkg.featured ? 'text-white' : 'text-white'
-      }`}>{pkg.title}</h3>
-      <div className="mb-4">
-        <span className="text-5xl font-bold text-white">{pkg.price}</span>
-        <span className={`ml-2 ${
-          pkg.featured ? 'text-white/90' : 'text-gray-400'
-        }`}>{pkg.subtitle}</span>
-      </div>
+interface Package {
+  name: string;
+  price: string;
+  title: string;
+  subtitle: string;
+  features: Feature[];
+  featured?: boolean;
+}
+
+const FeatureItem = memo(
+  ({ feature, featured }: { feature: Feature; featured: boolean }) => (
+    <li className="flex items-center gap-3">
+      {feature.included ? (
+        <Check className={`w-5 h-5 ${featured ? 'text-white' : 'text-green-600'}`} />
+      ) : (
+        <X className="w-5 h-5 text-gray-500" />
+      )}
+      <span className={feature.included ? (featured ? 'text-white' : 'text-gray-800') : 'text-gray-400'}>
+        {feature.name}
+      </span>
+    </li>
+  )
+);
+FeatureItem.displayName = 'FeatureItem';
+
+const PricingCard = memo(
+  ({ pkg }: { pkg: Package }) => (
+    <div
+      className={`rounded-2xl p-8 ${
+        pkg.featured ? 'bg-green-600 border-2 border-white' : 'bg-green-800'
+      }`}
+    >
+      <h3 className="text-2xl font-bold text-white">{pkg.title}</h3>
+      <p className="text-4xl font-extrabold text-white">{pkg.price}</p>
+      <p className="text-lg text-white">{pkg.subtitle}</p>
+      <ul className="mt-6 space-y-4">
+        {pkg.features.map((feature, index) => (
+          <FeatureItem key={index} feature={feature} featured={!!pkg.featured} />
+        ))}
+      </ul>
+      
+      {/* Contact Button */}
+      <Link href="/contact">
+        <button className="w-full mt-8 px-4 py-1.5 rounded-full font-semibold text-white  
+          transition-colors duration-200
+          bg-pink-500 hover:bg-pink-600">
+          Get Started
+        </button>
+
+      </Link>
     </div>
-
-    <ul className="space-y-4 mb-8">
-      {pkg.features.map((feature: any, featureIndex: number) => (
-        <FeatureItem key={featureIndex} feature={feature} featured={pkg.featured} />
-      ))}
-    </ul>
-
-    <Link href="/contact">
-      <Button 
-        variant="default"
-        className={`w-full font-semibold rounded-full ${
-          pkg.featured
-            ? 'bg-white text-[#16A349] hover:bg-gray-100'
-            : 'bg-[#16A349] text-white hover:bg-[#138A3F]'
-        }`}
-      >
-        GET STARTED
-      </Button>
-    </Link>
-  </div>
-));
+  )
+);
+PricingCard.displayName = 'PricingCard';
 
 export function PricingSection() {
-  const packages = [
+  const packages: Package[] = [
     {
+      name: "lump-sum",
       title: "LUMP SUM",
       price: "$1,500",
       subtitle: "+$25/mo Hosting",
@@ -70,6 +80,7 @@ export function PricingSection() {
       ]
     },
     {
+      name: "monthly",
       title: "MONTHLY",
       price: "$149",
       subtitle: "Per Month",
@@ -85,6 +96,7 @@ export function PricingSection() {
       ]
     },
     {
+      name: "ecommerce",
       title: "ECOMMERCE",
       price: "$3k",
       subtitle: "Starting",
