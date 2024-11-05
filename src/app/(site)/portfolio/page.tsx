@@ -20,7 +20,7 @@ const projects: Project[] = [
     category: "Lawn Care",
     image: "/images/PLC-Success.png",
     description: "Modern website redesign with booking system integration",
-    link: "https://lawnlogic.agency/portfolio/plc"
+    link: "https://lawnlogic.agency/portfolio/hedgehoglawncare"
   },
   // Add more projects...
 ];
