@@ -1,5 +1,3 @@
-// src/app/components/Header.tsx
-
 'use client';
 
 import React, { useState, useEffect, } from 'react';
@@ -52,6 +50,13 @@ const Header = () => {
             <Link href="/about">
               <Button className="text-lg px-4 py-2 hover:bg-white/10 transition-colors">
                 About Us
+              </Button>
+            </Link>
+          </li>
+          <li>
+            <Link href="/portfolio">
+              <Button className="text-lg px-4 py-2 hover:bg-white/10 transition-colors">
+                Portfolio
               </Button>
             </Link>
           </li>
@@ -123,6 +128,15 @@ const Header = () => {
               className="block text-gray-800 hover:bg-gray-100 rounded-md px-3 py-2 text-base font-medium"
             >
               About Us
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/portfolio"
+              onClick={() => setIsMenuOpen(false)}
+              className="block text-gray-800 hover:bg-gray-100 rounded-md px-3 py-2 text-base font-medium"
+            >
+              Portfolio
             </Link>
           </li>
           <li>

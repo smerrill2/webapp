@@ -46,7 +46,6 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
   link 
 }) => {
   const [isHovered, setIsHovered] = useState(false);
-  const backgroundImage = '/images/backgroundsvg.svg';
 
   return (
     <div 
@@ -57,7 +56,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       style={{
-        backgroundImage: isHovered ? `url(${backgroundImage})` : 'none',
+        backgroundImage: isHovered ? 'none' : 'url(/images/services-bg.jpg)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
       }}
@@ -152,7 +151,7 @@ const services: ServiceItem[] = [
       "Touch-friendly interface design",
       "Progressive web app capable"
     ],
-    link: "/services/mobile-first"
+    link: "/services"
   },
   {
     title: "SEO OPTIMIZATION",
@@ -164,7 +163,7 @@ const services: ServiceItem[] = [
       "Technical SEO implementation",
       "Monthly performance reports"
     ],
-    link: "/services/seo"
+    link: "/services"
   },
   {
     title: "HAND CODED",
@@ -176,7 +175,7 @@ const services: ServiceItem[] = [
       "Optimized JavaScript",
       "Best coding practices"
     ],
-    link: "/services/development"
+    link: "/services"
   },
   {
     title: "OPTIMIZED SPEED",
@@ -188,7 +187,7 @@ const services: ServiceItem[] = [
       "Browser caching",
       "Content delivery networks"
     ],
-    link: "/services/speed"
+    link: "/services"
   },
   {
     title: "SECURE HOSTING",
@@ -200,7 +199,7 @@ const services: ServiceItem[] = [
       "Firewall protection",
       "24/7 monitoring"
     ],
-    link: "/services/hosting"
+    link: "/services"
   },
   {
     title: "24/7 SUPPORT",
@@ -212,7 +211,7 @@ const services: ServiceItem[] = [
       "Email ticket system",
       "Emergency assistance"
     ],
-    link: "/services/support"
+    link: "/services"
   }
 ];
 

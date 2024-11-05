@@ -30,7 +30,7 @@ const testimonials = [
     name: "Dave L.",
     role: "Owner of HedgeHog Lawn Care",
     content: "LawnLogic's ability to put together a unique design while transferring visitors into customers has helped immensely. I'm happy we chose him for our website!",
-    image: "/images/plc-owner.jpg"
+    image: "/images/plc-owner.png"
   },
 ];
 

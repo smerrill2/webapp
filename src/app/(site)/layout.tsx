@@ -6,26 +6,26 @@ import React from 'react';
 import Header from '@/app/components/Header';
 import Footer from '@/app/components/Footer';
 import { Analytics } from '@vercel/analytics/react';
+
 export default function SiteLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      {/* Header without isHomePage prop */}
-      <Header />
+      <div className="fixed w-full z-50 shadow-lg">
+        <Header />
+      </div>
 
       {/* Main Content with Gradient Background */}
       <div
-        className="min-h-screen flex flex-col"
+        className="min-h-screen flex flex-col pt-24" // Added padding-top to account for fixed header
         style={{
-          background: 'linear-gradient(to right, black, #006400)',
+          background: 'white',
         }}
       >
         <main className="flex-grow container mx-auto px-4 sm:px-8">
           {children}
           <Analytics />
-
         </main>
 
-        {/* Footer */}
         <Footer />
       </div>
     </>

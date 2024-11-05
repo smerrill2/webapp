@@ -36,7 +36,7 @@ export function Header() {
                 src="/images/HedgeHoglawncare.png"
                 alt="HedgeHog Lawn Care Logo"
                 width={100}
-                height={60}
+                height={40}
                 priority={true}
                 className="w-auto h-auto"
                 style={{ maxWidth: '100%', height: 'auto' }}

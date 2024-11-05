@@ -1,84 +1,116 @@
-// src/app/testimonials/WSUTestimonial.tsx
-
 import React from 'react';
-import { Card, CardContent } from "@/app/components/card";
 import Image from 'next/image';
-import { Instagram } from 'lucide-react';
+import { Button } from '@/app/components/button';
+import Link from 'next/link';
 
-// Define the props interface for SocialMetric
-interface SocialMetricProps {
-  platform: string;
-  growth: number;
-  icon: React.ReactNode;
+interface TestimonialCardProps {
+  logo: string;
+  companyName: string;
+  image: string;
+  quote: string;
+  author: string;
+  position: string;
+  caseStudyLink: string;
 }
 
-const SocialMetric: React.FC<SocialMetricProps> = ({ platform, growth, icon }) => (
-  <Card className="bg-white/10 backdrop-blur-lg">
-    <CardContent className="flex items-center justify-between p-6">
-      <div className="flex items-center space-x-4">
-        {icon}
-        <div>
-          <p className="text-lg font-semibold">{platform}</p>
-          <p className="text-sm text-gray-400">Follower Growth</p>
+const TestimonialCard: React.FC<TestimonialCardProps> = ({
+  logo,
+  companyName,
+  image,
+  quote,
+  author,
+  position,
+  caseStudyLink
+}) => {
+  return (
+    <div className="bg-white rounded-lg p-6 shadow-sm border border-black">
+      <div className="h-12 mb-6">
+        <Image
+          src={logo}
+          alt={`${companyName} logo`}
+          width={150}
+          height={48}
+          className="h-full w-auto object-contain"
+        />
+      </div>
+      
+      <h2 className="text-2xl font-bold text-gray-800 mb-4">{companyName}</h2>
+      
+      <div className="aspect-video relative mb-6 rounded-lg overflow-hidden">
+        <Image
+          src={image}
+          alt={`${companyName} case study`}
+          fill
+          className="object-cover"
+        />
+      </div>
+      
+      <blockquote className="text-gray-600 italic mb-4">
+        "{quote}"
+      </blockquote>
+      
+      <p className="text-gray-800 font-medium mb-6">
+        — {author}, <span className="text-gray-600">{position}</span>
+      </p>
+      
+      <Link href={caseStudyLink}>
+        <Button className="w-full bg-green-600 hover:bg-green-700 text-white rounded-full">
+          READ THE CASE STUDY
+        </Button>
+      </Link>
+    </div>
+  );
+};
+
+const TestimonialsSection = () => {
+  // You can replace these with your actual testimonial data
+  const testimonials = [
+    {
+      logo: "/images/HedgeHoglawncare.png",
+      companyName: "HedgeHog Lawn Care",
+      image: "/images/PLC-Success.png",
+      quote: "Spencer and his team delivered a beautiful MVP in a week. They're fast, quick, and easy to work with for pushing out real time websites.",
+      author: "David L",
+      position: "Owner/ Operator",
+      caseStudyLink: "/hedgehog"
+    },
+    {
+      logo: "/images/standard.png",
+      companyName: "Wichita State University",
+      image: "/images/CaseStudy.png",
+      quote: "Spencer increased our graduate applications by way more than we anticipated! It was nearly double than it was last year! His expertise is second to no one.",
+      author: "Margaret Dawe",
+      position: "Associate Director of Fairmount Arts and Sciences College",
+      caseStudyLink: "/wsu"
+    },
+    // Add more testimonials as needed
+  ];
+
+  return (
+    <section className="py-20 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        {/* Section Header */}
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            Client Success Stories
+          </h2>
+          <p className="text-xl text-gray-600">
+            See how we've helped businesses achieve their goals
+          </p>
+        </div>
+
+        {/* Testimonials Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {testimonials.map((testimonial, index) => (
+            <TestimonialCard
+              key={index}
+              {...testimonial}
+            />
+          ))}
         </div>
       </div>
-      <div className="text-right">
-        <p className="text-2xl font-bold text-green-400">{growth}%</p>
-        <p className="text-sm text-gray-400">Increase</p>
-      </div>
-    </CardContent>
-  </Card>
-);
-
-export default function WSUTestimonial() {
-  return (
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <main className="space-y-12 py-12">
-          {/* Hero Section */}
-          <section className="flex flex-col md:flex-row items-start md:items-center justify-start md:justify-start">
-            <div className="md:w-full flex items-start">
-              <Image
-                src="/images/WichitaStateUniversity.png" // Replace with the actual image path
-                alt="Wichita State University Logo"
-                width={100}
-                height={100}
-                className="w-24 h-auto mr-4"
-              />
-              <div>
-                <h1 className="text-4xl text-white md:text-5xl font-bold mb-2">Wichita State University</h1>
-                <p className="text-xl text-gray-300 mb-4">Elevating Academic Excellence through Digital Engagement</p>
-              </div>
-            </div>
-          </section>
-
-          {/* Social Metrics Section */}
-          <section className="grid md:grid-cols-1 gap-0">
-            <SocialMetric
-              platform="Instagram"
-              growth={35}
-              icon={<Instagram className="h-8 w-8 text-pink-500" />}
-            />
-          </section>
-
-          {/* Content Section */}
-          <section className="mt-8">
-            <h2 className="text-3xl md:text-4xl text-white font-bold mb-4">Our Growth with Them</h2>
-            <p className="text-lg text-gray-300 leading-relaxed mb-4">
-              Beginning in the Summer of &#39;24, I helped curate and plan a social media strategy to increase the number of
-              followers on their accounts, while the goal was to increase the graduate applicant pool.
-            </p>
-            <p className="text-lg text-gray-300 leading-relaxed">
-              It&#39;s been a pleasure working with them thus far, as we&#39;ve seen a 15% increase in applications from the previous year compared to this time with little budget going into it.
-              This increased yield with the same amount of budget as the previous year has been a great success for not only achieving our goals but also establishing
-              a new, great relationship with the students involved in creating the content. Since then, I have partnered with the College of Innovation Design to further expand their applications twofold.
-              If you&#39;re curious and want to know more, feel free to reach out to us!
-            </p>
-          </section>
-
-          {/* Additional Content (Optional) */}
-          {/* You can add more sections or components as needed */}
-
-        </main>
-      </div>
+    </section>
   );
-}
+};
+
+export default TestimonialsSection;

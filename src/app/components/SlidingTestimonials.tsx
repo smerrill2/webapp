@@ -61,13 +61,17 @@ const SlidingTestimonials: React.FC<SlidingTestimonialsProps> = ({ testimonials 
   const [position, setPosition] = useState(0);
   const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
   const cardWidth = isMobile ? 300 : 500;
-  const totalCards = testimonials.length;
   const gap = isMobile ? 16 : 32;
+  
+  // Duplicate testimonials to create seamless loop
+  const duplicatedTestimonials = [...testimonials, ...testimonials, ...testimonials];
+  const totalCards = testimonials.length;
   const fullWidth = (cardWidth + gap) * totalCards;
 
   useEffect(() => {
     const animate = () => {
       setPosition((prevPos) => {
+        // Reset position when we've scrolled through one set
         if (prevPos <= -fullWidth) {
           return 0;
         }
@@ -92,9 +96,9 @@ const SlidingTestimonials: React.FC<SlidingTestimonialsProps> = ({ testimonials 
               transition: 'transform 0.05s linear'
             }}
           >
-            {testimonials.map((testimonial, index) => (
+            {duplicatedTestimonials.map((testimonial, index) => (
               <TestimonialCard
-                key={index}
+                key={`${testimonial.name}-${index}`}
                 name={testimonial.name}
                 role={testimonial.role}
                 content={testimonial.content}

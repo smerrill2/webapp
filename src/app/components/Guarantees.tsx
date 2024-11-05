@@ -16,12 +16,12 @@ export function GuaranteesSection() {
   const benefits = [
     {
       title: "100% SECURE",
-      description: "Our sites are just static HTML and CSS code, meaning there's literally nothing that can be hacked.",
+      description: "The hosting platforms, form submission pages, and code allow for minimal chances for your things to get hacked. We take your privacy and your customer's very seriously.",
       icon: ShieldCheck
     },
     {
       title: "CUSTOM DESIGNED",
-      description: "Our designs are made by an in-house design team, which allows us to make anything we want.",
+      description: "Our designs are custom made by our in-house designers. We make sure to make your site look good on your phone and desktop.",
       icon: Palette
     },
     {
@@ -36,7 +36,7 @@ export function GuaranteesSection() {
     },
     {
       title: "MONEY BACK GUARANTEE",
-      description: "If we can't design something you like, you get your money back and the contract is cancelled. We stand by our work.",
+      description: "If at any point your google page speeds dip below 95, we promise you a month's payment free. Althought that should never happen.",
       icon: ClipboardCheck
     },
     {
@@ -55,7 +55,7 @@ export function GuaranteesSection() {
             <div className="flex flex-col">
               <div className="w-full aspect-square relative rounded-2xl overflow-hidden mb-6">
                 <Image 
-                  src="/images/landingpage.jpg"
+                  src="/images/Homepage_Picture.png"
                   alt="Owner Headshot" 
                   fill
                   className="object-cover"
@@ -90,13 +90,13 @@ export function GuaranteesSection() {
                   WHAT WE OFFER
                 </p>
                 <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                  WEBSITES STARTING AT $0 DOWN AND $175 PER MONTH
+                  WEBSITES STARTING AT $0 DOWN AND $149 PER MONTH
                 </h2>
                 <p className="text-base text-gray-600">
                   We offer $0 down for a standard 5 page small business website. If you need more than 
                   that then we have to do custom pricing based on the scope of work, number of additional 
                   pages, and time involved. 12 month minimum contract. Includes design, development, 
-                  hosting, unlimited edits, 24/7 support, and lifetime updates.
+                  hosting, security, 24/7 support, and lifetime updates.
                 </p>
               </div>
 
