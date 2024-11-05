@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import Image from 'next/image';
 import { Button } from "@/app/components/button";
 import { 
@@ -9,6 +9,25 @@ import {
   ShieldCheck, 
   Search 
 } from 'lucide-react';
+
+// Memoize icon components
+const BenefitIcon = memo(({ Icon }: { Icon: any }) => (
+  <Icon size={20} style={{ color: '#16A349' }} />
+));
+
+const BenefitCard = memo(({ benefit }: { benefit: any }) => (
+  <div className="bg-gray-50 p-6 rounded-xl">
+    <div className="flex items-center gap-2 mb-3">
+      <BenefitIcon Icon={benefit.icon} />
+      <h3 className="text-base font-bold" style={{ color: '#16A349' }}>
+        {benefit.title}
+      </h3>
+    </div>
+    <p className="text-sm text-gray-500 leading-relaxed">
+      {benefit.description}
+    </p>
+  </div>
+));
 
 export function GuaranteesSection() {
   const baseUrl = "lawnlogic.agency"
@@ -102,22 +121,9 @@ export function GuaranteesSection() {
 
               {/* Benefits Grid */}
               <div className="grid md:grid-cols-2 gap-6">
-                {benefits.map((benefit, index) => {
-                  const Icon = benefit.icon;
-                  return (
-                    <div key={index} className="bg-gray-50 p-6 rounded-xl">
-                      <div className="flex items-center gap-2 mb-3">
-                        <Icon size={20} style={{ color: '#16A349' }} />
-                        <h3 className="text-base font-bold" style={{ color: '#16A349' }}>
-                          {benefit.title}
-                        </h3>
-                      </div>
-                      <p className="text-sm text-gray-500 leading-relaxed">
-                        {benefit.description}
-                      </p>
-                    </div>
-                  );
-                })}
+                {benefits.map((benefit, index) => (
+                  <BenefitCard key={index} benefit={benefit} />
+                ))}
               </div>
 
               {/* CTA Button */}

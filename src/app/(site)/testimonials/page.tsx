@@ -72,7 +72,7 @@ const TestimonialsSection = () => {
       quote: "Spencer and his team delivered a beautiful MVP in a week. They're fast, quick, and easy to work with for pushing out real time websites.",
       author: "David L",
       position: "Owner/ Operator",
-      caseStudyLink: "/hedgehog"
+      caseStudyLink: "/hedgehoglawncare"
     },
     {
       logo: "/images/standard.png",

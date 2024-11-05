@@ -2,18 +2,21 @@
 
 'use client';
 
-import React from 'react'
+import React, { lazy, Suspense } from 'react';
 import Header from '@/app/components/Header';
 import Footer from '@/app/components/Footer';
 import HeroSection from '@/app/components/HeroSection';
-import ServiceShowcase from '@/app/components/ServiceSection';
-import SuccessShowcase from '@/app/components/SuccessShowcase';
-import SlidingTestimonials from '@/app/components/SlidingTestimonials';
-import BookingForm from '@/app/components/BookingForm';
-import { GuaranteesSection } from '@/app/components/Guarantees';
-import { PricingSection } from '@/app/components/PricingSection';
 
-const testimonials = [
+// Lazy load non-critical components
+const ServiceShowcase = lazy(() => import('@/app/components/ServiceSection'));
+const SuccessShowcase = lazy(() => import('@/app/components/SuccessShowcase'));
+const SlidingTestimonials = lazy(() => import('@/app/components/SlidingTestimonials'));
+const BookingForm = lazy(() => import('@/app/components/BookingForm'));
+const GuaranteesSection = lazy(() => import('@/app/components/Guarantees').then(mod => ({ default: mod.GuaranteesSection })));
+const PricingSection = lazy(() => import('@/app/components/PricingSection').then(mod => ({ default: mod.PricingSection })));
+
+// Move static data outside the component
+const TESTIMONIALS = [
   {
     name: "Stephan C.",
     role: "Owner of Elite Lawn Maintenance",
@@ -34,65 +37,57 @@ const testimonials = [
   },
 ];
 
-export default function HomePage() {
+// Memoize the gradient styles
+const gradientStyle = {
+  background: 'linear-gradient(to right, black, #006400)',
+};
 
+const mobileSliceStyle = {
+  clipPath: 'polygon(0% 95%, 100% 65%, 100% 100%, 0% 100%)',
+  background: 'linear-gradient(to bottom, rgba(255,255,255,0.95), white)'
+};
+
+const desktopSliceStyle = {
+  clipPath: 'polygon(0% 90%, 100% 70%, 100% 100%, 0% 100%)',
+  background: 'linear-gradient(to bottom, rgba(255,255,255,0.95), white)'
+};
+
+export default function HomePage() {
   return (
     <>
       <Header />
       <section className="relative overflow-hidden">
-        {/* Original Gradient */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background: 'linear-gradient(to right, black, #006400)',
-          }}
-        />
-        
-        {/* Mobile Diagonal Slice */}
+        <div className="absolute inset-0" style={gradientStyle} />
         <div className="absolute inset-0 md:hidden">
-          <div 
-            className="absolute inset-0 transform origin-bottom-left"
-            style={{
-              clipPath: 'polygon(0% 95%, 100% 65%, 100% 100%, 0% 100%)',
-              background: 'linear-gradient(to bottom, rgba(255,255,255,0.95), white)'
-            }}
-          />
+          <div className="absolute inset-0 transform origin-bottom-left" style={mobileSliceStyle} />
         </div>
-
-        {/* Desktop Diagonal Slice */}
         <div className="absolute inset-0 hidden md:block">
-          <div 
-            className="absolute inset-0 transform origin-bottom-left"
-            style={{
-              clipPath: 'polygon(0% 90%, 100% 70%, 100% 100%, 0% 100%)',
-              background: 'linear-gradient(to bottom, rgba(255,255,255,0.95), white)'
-            }}
-          />
+          <div className="absolute inset-0 transform origin-bottom-left" style={desktopSliceStyle} />
         </div>
         <div className="relative z-10">
           <HeroSection />
         </div>
       </section>
       
-      <ServiceShowcase />
-      <GuaranteesSection />
-<PricingSection/>
-      {/* Success Showcase Section */}
-      <div className="bg-gray-50 py-16">
-        <SuccessShowcase />
-      </div>
-
-      {/* Booking Form Section */}
-      <div id="booking-form" >
-        <div className="bg-white">
-        <BookingForm />
+      <Suspense fallback={<div>Loading...</div>}>
+        <ServiceShowcase />
+        <GuaranteesSection />
+        <PricingSection />
+        
+        <div className="bg-gray-50 py-16">
+          <SuccessShowcase />
         </div>
-      </div>
 
-      {/* Testimonials Section */}
-      <div className="bg-gray-50">
-        <SlidingTestimonials testimonials={testimonials} />
-      </div>
+        <div id="booking-form">
+          <div className="bg-white">
+            <BookingForm />
+          </div>
+        </div>
+
+        <div className="bg-gray-50">
+          <SlidingTestimonials testimonials={TESTIMONIALS} />
+        </div>
+      </Suspense>
 
       <Footer />
     </>

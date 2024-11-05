@@ -1,10 +1,30 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { Inter } from 'next/font/google';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 
 const inter = Inter({ subsets: ['latin'] });
+
+const PortfolioItem = memo(({ image }: { image: any }) => (
+  <Link href={image.link} className="block group relative">
+    <div className="relative aspect-[16/9] w-full overflow-hidden rounded-2xl">
+      <Image
+        src={image.src}
+        alt={image.alt}
+        fill
+        className="object-cover transition-transform duration-500 group-hover:scale-105"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+      <div className="absolute bottom-0 p-8">
+        <h3 className="text-white text-xl font-semibold flex items-center">
+          {image.title}
+          <ArrowRight className="ml-2 h-5 w-5" />
+        </h3>
+      </div>
+    </div>
+  </Link>
+));
 
 export default function PortfolioSection() {
   const portfolioImages = [
@@ -49,27 +69,7 @@ export default function PortfolioSection() {
             {/* Right Column */}
             <div className="space-y-6">
               {portfolioImages.map((image, index) => (
-                <Link 
-                  href={image.link} 
-                  key={index}
-                  className="block group relative"
-                >
-                  <div className="relative aspect-[16/9] w-full overflow-hidden rounded-2xl">
-                    <Image
-                      src={image.src}
-                      alt={image.alt}
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent transition-opacity duration-300 group-hover:opacity-80" />
-                    <div className="absolute bottom-0 left-0 right-0 p-8">
-                      <h3 className="text-white text-xl font-semibold flex items-center transform transition-transform duration-300 group-hover:translate-x-2">
-                        {image.title}
-                        <ArrowRight className="ml-2 h-5 w-5 transform transition-transform duration-300 group-hover:translate-x-1" />
-                      </h3>
-                    </div>
-                  </div>
-                </Link>
+                <PortfolioItem image={image} key={index} />
               ))}
             </div>
           </div>

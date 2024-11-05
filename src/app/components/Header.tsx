@@ -32,14 +32,16 @@ const Header = () => {
         <nav className="flex justify-between items-center relative">
         {/* Logo Container */}
         <div className="flex items-center ml-0 lg:ml-4">
-          <Link href="/" className="w-60 h-20 relative cursor-pointer">
+          <Link href="/" className="relative">
             <Image
               src="/images/LawnLogic.png"
               alt="LawnLogic Logo"
-              layout="fill"
-              objectFit="contain"
-              objectPosition="left center"
-              priority
+              width={180}  // Reduced from 240
+              height={60}  // Reduced from 80
+              priority={true}
+              quality={85}
+              sizes="(max-width: 768px) 150px, 180px"
+              className="object-contain"
             />
           </Link>
         </div>

@@ -1,7 +1,57 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { Check, X } from 'lucide-react';
 import { Button } from "@/app/components/button";
 import Link from 'next/link';
+
+const FeatureItem = memo(({ feature, featured }: { feature: any, featured: boolean }) => (
+  <li className="flex items-center gap-3">
+    {feature.included ? 
+      <Check className={`w-5 h-5 ${featured ? 'text-white' : 'text-[#16A349]'}`} /> : 
+      <X className="w-5 h-5 text-gray-500" />}
+    <span className={`text-sm ${feature.included ? 
+      (featured ? 'text-white' : 'text-white') : 
+      'text-gray-400'}`}>
+      {feature.name}
+    </span>
+  </li>
+));
+
+const PricingCard = memo(({ pkg }: { pkg: any }) => (
+  <div className={`rounded-2xl p-8 ${pkg.featured ? 
+    'bg-[#16A349] border-2 border-white' : 
+    'bg-[#133420]'}`}>
+    <div className="mb-8">
+      <h3 className={`text-2xl font-bold mb-2 ${
+        pkg.featured ? 'text-white' : 'text-white'
+      }`}>{pkg.title}</h3>
+      <div className="mb-4">
+        <span className="text-5xl font-bold text-white">{pkg.price}</span>
+        <span className={`ml-2 ${
+          pkg.featured ? 'text-white/90' : 'text-gray-400'
+        }`}>{pkg.subtitle}</span>
+      </div>
+    </div>
+
+    <ul className="space-y-4 mb-8">
+      {pkg.features.map((feature: any, featureIndex: number) => (
+        <FeatureItem key={featureIndex} feature={feature} featured={pkg.featured} />
+      ))}
+    </ul>
+
+    <Link href="/contact">
+      <Button 
+        variant="default"
+        className={`w-full font-semibold rounded-full ${
+          pkg.featured
+            ? 'bg-white text-[#16A349] hover:bg-gray-100'
+            : 'bg-[#16A349] text-white hover:bg-[#138A3F]'
+        }`}
+      >
+        GET STARTED
+      </Button>
+    </Link>
+  </div>
+));
 
 export function PricingSection() {
   const packages = [
@@ -64,60 +114,7 @@ export function PricingSection() {
         {/* Pricing Cards Grid */}
         <div className="grid md:grid-cols-3 gap-8">
           {packages.map((pkg, index) => (
-            <div 
-              key={index}
-              className={`rounded-2xl p-8 ${
-                pkg.featured 
-                  ? 'bg-[#16A349] border-2 border-white relative' // Bright green for featured
-                  : 'bg-[#133420]' // Darker green for others
-              }`}
-            >
-              <div className="mb-8">
-                <h3 className={`text-2xl font-bold mb-2 ${
-                  pkg.featured ? 'text-white' : 'text-white'
-                }`}>{pkg.title}</h3>
-                <div className="mb-4">
-                  <span className="text-5xl font-bold text-white">{pkg.price}</span>
-                  <span className={`ml-2 ${
-                    pkg.featured ? 'text-white/90' : 'text-gray-400'
-                  }`}>{pkg.subtitle}</span>
-                </div>
-              </div>
-
-              <ul className="space-y-4 mb-8">
-                {pkg.features.map((feature, featureIndex) => (
-                  <li key={featureIndex} className="flex items-center gap-3">
-                    {feature.included ? (
-                      <Check className={`w-5 h-5 ${
-                        pkg.featured ? 'text-white' : 'text-[#16A349]'
-                      } flex-shrink-0`} />
-                    ) : (
-                      <X className="w-5 h-5 text-gray-500 flex-shrink-0" />
-                    )}
-                    <span className={`text-sm ${
-                      feature.included 
-                        ? pkg.featured ? 'text-white' : 'text-white'
-                        : 'text-gray-400'
-                    }`}>
-                      {feature.name}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-
-              <Link href="/contact">
-                <Button 
-                  variant="default"
-                  className={`w-full font-semibold rounded-full ${
-                    pkg.featured
-                      ? 'bg-white text-[#16A349] hover:bg-gray-100'
-                      : 'bg-[#16A349] text-white hover:bg-[#138A3F]'
-                  }`}
-                >
-                  GET STARTED
-                </Button>
-              </Link>
-            </div>
+            <PricingCard key={index} pkg={pkg} />
           ))}
         </div>
       </div>

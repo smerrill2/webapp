@@ -47,20 +47,28 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
 }) => {
   const [isHovered, setIsHovered] = useState(false);
 
+  const handleHover = () => {
+    if (window.innerWidth >= 768) {
+      setIsHovered(!isHovered);
+    }
+  };
+
+  const handleClick = () => {
+    if (window.innerWidth < 768) {
+      setIsHovered(!isHovered);
+    }
+  };
+
   return (
     <div 
       className="relative overflow-hidden group
         bg-white hover:!bg-black
         transition-all duration-500 hover:shadow-xl rounded-lg
         aspect-square lg:aspect-square cursor-pointer"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      style={{
-        backgroundImage: isHovered ? 'none' : 'url(/images/services-bg.jpg)',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-      }}
-    >
+      onMouseEnter={handleHover}
+      onMouseLeave={handleHover}
+      onClick={handleClick}
+     >
       {/* Content Container */}
       <div className="relative p-6 h-full z-10 flex flex-col">
         {/* Icon */}
